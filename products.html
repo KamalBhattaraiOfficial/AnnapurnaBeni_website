@@ -147,362 +147,174 @@
 	</div>
 	<!-- end breadcrumb section -->
 
-    <!-- products -->
-    <div class="product-section mb-150">
-        <div class="container">
+<!-- PRODUCTS SECTION -->
+<style>
+.product-section { margin-bottom: 80px; }
+.product-filters ul { list-style: none; padding: 0; display: flex; gap: 15px; flex-wrap: wrap; }
+.product-filters li { padding: 8px 16px; background: #f2f2f2; cursor: pointer; border-radius: 5px; transition: 0.3s; }
+.product-filters li.active, .product-filters li:hover { background: #f28123; color: #fff; }
+.single-product-item { background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); height: 100%; display: flex; flex-direction: column; }
+.single-product-item img { width: 100%; height: 250px; object-fit: cover; border-radius: 5px; margin-bottom: 10px; }
+.pagination-wrap { margin-top: 50px; margin-bottom: 50px; }
+.pagination-wrap ul { list-style: none; display: flex; justify-content: center; gap: 10px; padding: 0; }
+.pagination-wrap ul li a { padding: 8px 12px; background: #f2f2f2; border-radius: 5px; text-decoration: none; color: #333; }
+.pagination-wrap ul li a.active, .pagination-wrap ul li a:hover { background: #f28123; color: #fff; }
+.pagination-wrap ul li a.disabled { pointer-events: none; opacity: 0.5; }
+.logo-carousel-section { padding: 50px 0; }
+.logo-carousel-inner { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+.logo-carousel-inner img { max-width: 100px; height: auto; }
+</style>
 
-            <!-- Filter Buttons -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="product-filters">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".doms">DOMS</li>
-                            <li data-filter=".renko">Renko</li>
-                            <li data-filter=".doublea">DoubleA</li>
-                            <li data-filter=".nepal-copy">Nepal Copy</li>
-                            <li data-filter=".himal-copy">Himal Copy</li>
-                            <li data-filter=".others">Others</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Grid -->
-            <div class="row product-lists">
-
-                <!-- DOMS -->
-                <div class="col-lg-4 col-md-6 text-center doms">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Doms/product-img-1.jpg" alt="DOMS Graphite Pencil"></a>
-                        </div>
-                        <h3>DOMS Graphite Pencil</h3>
-                        <p class="product-code">Code No: DOMS-001</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center doms">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Doms/product-img-2.jpg" alt="DOMS Color Pencils"></a>
-                        </div>
-                        <h3>DOMS Color Pencils</h3>
-                        <p class="product-code">Code No: DOMS-002</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center doms">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Doms/product-img-3.jpg" alt="DOMS Eraser"></a>
-                        </div>
-                        <h3>DOMS Eraser</h3>
-                        <p class="product-code">Code No: DOMS-003</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center doms">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Doms/product-img-4.jpg" alt="DOMS Sharpener"></a>
-                        </div>
-                        <h3>DOMS Sharpener</h3>
-                        <p class="product-code">Code No: DOMS-004</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center doms">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Doms/product-img-5.jpg" alt="DOMS Sketch Pens"></a>
-                        </div>
-                        <h3>DOMS Sketch Pens</h3>
-                        <p class="product-code">Code No: DOMS-005</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-
-                <!-- Renko -->
-                <div class="col-lg-4 col-md-6 text-center renko">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Renko/product-img-1.jpg" alt="Renko Ball Pen"></a>
-                        </div>
-                        <h3>Renko Ball Pen</h3>
-                        <p class="product-code">Code No: RENKO-001</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center renko">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Renko/product-img-2.jpg" alt="Renko Gel Pen"></a>
-                        </div>
-                        <h3>Renko Gel Pen</h3>
-                        <p class="product-code">Code No: RENKO-002</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center renko">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Renko/product-img-3.jpg" alt="Renko Marker"></a>
-                        </div>
-                        <h3>Renko Whiteboard Marker</h3>
-                        <p class="product-code">Code No: RENKO-003</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center renko">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Renko/product-img-4.jpg" alt="Renko Highlighter"></a>
-                        </div>
-                        <h3>Renko Highlighter</h3>
-                        <p class="product-code">Code No: RENKO-004</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center renko">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Renko/product-img-5.jpg" alt="Renko Correction Pen"></a>
-                        </div>
-                        <h3>Renko Correction Pen</h3>
-                        <p class="product-code">Code No: RENKO-005</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-
-                        <!-- DoubleA (continued) -->
-                <div class="col-lg-4 col-md-6 text-center doublea">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/DoubleA/product-img-1.jpg" alt="DoubleA Sticky Notes"></a>
-                        </div>
-                        <h3>DoubleA Sticky Notes</h3>
-                        <p class="product-code">Code No: DOUBLEA-004</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center doublea">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/DoubleA/product-img-2.jpg" alt="DoubleA Index Tabs"></a>
-                        </div>
-                        <h3>DoubleA Index Tabs</h3>
-                        <p class="product-code">Code No: DOUBLEA-005</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-
-                <!-- Nepal Copy -->
-                <div class="col-lg-4 col-md-6 text-center nepal-copy">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Nepal-Copy/product-img-1.jpg" alt="Nepal Copy A4 Paper"></a>
-                        </div>
-                        <h3>Nepal Copy A4 Paper</h3>
-                        <p class="product-code">Code No: NC-001</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center nepal-copy">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Nepal-Copy/product-img-2.jpg" alt="Nepal Copy Notebook"></a>
-                        </div>
-                        <h3>Nepal Copy Notebook</h3>
-                        <p class="product-code">Code No: NC-002</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center nepal-copy">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Nepal-Copy/product-img-3.jpg" alt="Nepal Copy Sketch Book"></a>
-                        </div>
-                        <h3>Nepal Copy Sketch Book</h3>
-                        <p class="product-code">Code No: NC-003</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center nepal-copy">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Nepal-Copy/product-img-4.jpg" alt="Nepal Copy Ball Pen"></a>
-                        </div>
-                        <h3>Nepal Copy Ball Pen</h3>
-                        <p class="product-code">Code No: NC-004</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center nepal-copy">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Nepal-Copy/product-img-5.jpg" alt="Nepal Copy Pencil"></a>
-                        </div>
-                        <h3>Nepal Copy Pencil</h3>
-                        <p class="product-code">Code No: NC-005</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-
-                <!-- Himal Copy -->
-                <div class="col-lg-4 col-md-6 text-center himal-copy">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Himal-Copy/product-img-1.jpg" alt="Himal Copy A4 Paper"></a>
-                        </div>
-                        <h3>Himal Copy A4 Paper</h3>
-                        <p class="product-code">Code No: HC-001</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center himal-copy">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Himal-Copy/product-img-2.jpg" alt="Himal Copy Notebook"></a>
-                        </div>
-                        <h3>Himal Copy Notebook</h3>
-                        <p class="product-code">Code No: HC-002</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center himal-copy">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Himal-Copy/product-img-3.jpg" alt="Himal Copy Sketch Book"></a>
-                        </div>
-                        <h3>Himal Copy Sketch Book</h3>
-                        <p class="product-code">Code No: HC-003</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center himal-copy">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Himal-Copy/product-img-4.jpg" alt="Himal Copy Ball Pen"></a>
-                        </div>
-                        <h3>Himal Copy Ball Pen</h3>
-                        <p class="product-code">Code No: HC-004</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center himal-copy">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Himal-Copy/product-img-5.jpg" alt="Himal Copy Pencil"></a>
-                        </div>
-                        <h3>Himal Copy Pencil</h3>
-                        <p class="product-code">Code No: HC-005</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-
-                <!-- Others -->
-                <div class="col-lg-4 col-md-6 text-center others">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Other/product-img-1.jpg" alt="Premium Marker"></a>
-                        </div>
-                        <h3>Premium Marker</h3>
-                        <p class="product-code">Code No: OTH-001</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center others">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Other/product-img-2.jpg" alt="Luxury Pen"></a>
-                        </div>
-                        <h3>Luxury Pen</h3>
-                        <p class="product-code">Code No: OTH-002</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center others">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Other/product-img-3.jpg" alt="Designer Notebook"></a>
-                        </div>
-                        <h3>Designer Notebook</h3>
-                        <p class="product-code">Code No: OTH-003</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center others">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Other/product-img-4.jpg" alt="Highlighter Set"></a>
-                        </div>
-                        <h3>Highlighter Set</h3>
-                        <p class="product-code">Code No: OTH-004</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center others">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/Other/product-img-5.jpg" alt="Sticky Notes Pack"></a>
-                        </div>
-                        <h3>Sticky Notes Pack</h3>
-                        <p class="product-code">Code No: OTH-005</p>
-                        <a href="single-product.html" class="view-btn">View More</a>
-                    </div>
-                </div>
-
-            </div> <!-- end product-lists -->
-
-            <!-- Pagination -->
-            <div class="row mt-100">
-                <div class="col-lg-12 text-center">
-                    <div class="pagination-wrap">
-                        <ul>
-                            <li><a href="#">Prev</a></li>
-                            <li><a class="active" href="#" aria-current="page">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">Next</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
+<div class="product-section">
+  <div class="container">
+    <!-- FILTER BUTTONS -->
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <div class="product-filters">
+          <ul>
+            <li class="active" data-filter="*">All</li>
+            <li data-filter=".doms">DOMS</li>
+            <li data-filter=".renko">Renko</li>
+            <li data-filter=".doublea">DoubleA</li>
+            <li data-filter=".himalcopy">Himal Copy</li>
+            <li data-filter=".others">Others</li>
+          </ul>
         </div>
+      </div>
     </div>
-    <!-- end products -->
+
+    <!-- PRODUCT GRID -->
+    <div class="row" id="productList"></div>
+
+    <!-- PAGINATION -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <div class="pagination-wrap">
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGO CAROUSEL -->
+<div class="logo-carousel-section">
+  <div class="container">
+    <div class="logo-carousel-inner">
+      <img src="assets/img/company-logos/1.png" alt="">
+      <img src="assets/img/company-logos/2.png" alt="">
+      <img src="assets/img/company-logos/3.png" alt="">
+      <img src="assets/img/company-logos/4.png" alt="">
+      <img src="assets/img/company-logos/5.png" alt="">
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("productList");
+  const filterButtons = document.querySelectorAll(".product-filters li");
+  const paginationContainer = document.getElementById("pagination");
+
+  let products = [];
+  let currentPage = 1;
+  const itemsPerPage = 27;
+  let currentFilter = "*";
+
+  fetch("products.json")
+    .then(res => res.json())
+    .then(data => {
+      // Flatten JSON and add brand
+      products = [];
+      const brandsMap = {
+        doms: "doms",
+        renko: "renko",
+        doublea: "doublea",
+        himalcopy: "himalcopy",
+        nepalcopy: "nepalcopy",
+        others: "others"
+      };
+      for (const brand in data) {
+        data[brand].forEach(item => {
+          products.push({
+            brand: brand,
+            name: item.title,
+            image: item.image,
+            code: item.code || "",
+            link: item.link || "#"
+          });
+        });
+      }
+
+      renderProducts();
+      renderPagination();
+    })
+    .catch(err => console.error(err));
+
+  function renderProducts() {
+    container.innerHTML = "";
+    const filtered = products.filter(p => currentFilter === "*" || p.brand === currentFilter.slice(1));
+    const start = (currentPage - 1) * itemsPerPage;
+    const paginated = filtered.slice(start, start + itemsPerPage);
+
+    paginated.forEach(p => {
+      container.innerHTML += `
+        <div class="col-lg-4 col-md-6 mb-4 ${p.brand}">
+          <div class="single-product-item">
+            <div class="product-image">
+              <a href="${p.link}"><img src="${p.image}" alt="${p.name}"></a>
+            </div>
+            <h3>${p.name}</h3>
+            ${p.code ? `<p class="product-code">Code No: ${p.code}</p>` : ""}
+            <a href="${p.link}" class="view-btn">View More</a>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  function renderPagination() {
+    const filtered = products.filter(p => currentFilter === "*" || p.brand === currentFilter.slice(1));
+    const totalPages = Math.ceil(filtered.length / itemsPerPage);
+
+    paginationContainer.innerHTML = `
+      <li><a href="#" class="${currentPage===1?'disabled':''}" data-page="${currentPage-1}">Prev</a></li>
+      ${Array.from({length: totalPages}, (_, i) => `
+        <li><a href="#" class="${currentPage===i+1?'active':''}" data-page="${i+1}">${i+1}</a></li>
+      `).join('')}
+      <li><a href="#" class="${currentPage===totalPages?'disabled':''}" data-page="${currentPage+1}">Next</a></li>
+    `;
+
+    paginationContainer.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const page = parseInt(link.dataset.page);
+        if(!isNaN(page) && page>=1 && page<=totalPages){
+          currentPage = page;
+          renderProducts();
+          renderPagination();
+          window.scrollTo({top: container.offsetTop - 100, behavior:'smooth'});
+        }
+      });
+    });
+  }
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      filterButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentFilter = btn.getAttribute("data-filter");
+      currentPage = 1;
+      renderProducts();
+      renderPagination();
+    });
+  });
+});
+</script>
+<!-- product section end -->
 
 
 
-	<!-- logo carousel -->
-	<div class="logo-carousel-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="logo-carousel-inner">
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/1.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/2.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/3.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/4.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/5.png" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end logo carousel -->
 
 <!-- footer -->
 	<div class="footer-area">
