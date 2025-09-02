@@ -224,16 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("products.json")
     .then(res => res.json())
     .then(data => {
-      // Flatten JSON and add brand
       products = [];
-      const brandsMap = {
-        doms: "doms",
-        renko: "renko",
-        doublea: "doublea",
-        himalcopy: "himalcopy",
-        nepalcopy: "nepalcopy",
-        others: "others"
-      };
       for (const brand in data) {
         data[brand].forEach(item => {
           products.push({
@@ -245,15 +236,20 @@ document.addEventListener("DOMContentLoaded", () => {
           });
         });
       }
-
       renderProducts();
       renderPagination();
     })
     .catch(err => console.error(err));
 
+  function getFilteredProducts() {
+    return products.filter(
+      p => currentFilter === "*" || p.brand === currentFilter.slice(1)
+    );
+  }
+
   function renderProducts() {
     container.innerHTML = "";
-    const filtered = products.filter(p => currentFilter === "*" || p.brand === currentFilter.slice(1));
+    const filtered = getFilteredProducts();
     const start = (currentPage - 1) * itemsPerPage;
     const paginated = filtered.slice(start, start + itemsPerPage);
 
@@ -262,7 +258,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="col-lg-4 col-md-6 mb-4 ${p.brand}">
           <div class="single-product-item">
             <div class="product-image">
-              <a href="${p.link}"><img src="${p.image}" alt="${p.name}"></a>
+              <a href="${p.link}">
+                <img src="${p.image}" alt="${p.name}">
+              </a>
             </div>
             <h3>${p.name}</h3>
             ${p.code ? `<p class="product-code">Code No: ${p.code}</p>` : ""}
@@ -274,14 +272,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderPagination() {
-    const filtered = products.filter(p => currentFilter === "*" || p.brand === currentFilter.slice(1));
+    const filtered = getFilteredProducts();
     const totalPages = Math.ceil(filtered.length / itemsPerPage);
+
+    if (totalPages === 0) {
+      paginationContainer.innerHTML = "";
+      return;
+    }
 
     paginationContainer.innerHTML = `
       <li><a href="#" class="${currentPage===1?'disabled':''}" data-page="${currentPage-1}">Prev</a></li>
       ${Array.from({length: totalPages}, (_, i) => `
         <li><a href="#" class="${currentPage===i+1?'active':''}" data-page="${i+1}">${i+1}</a></li>
-      `).join('')}
+      `).join("")}
       <li><a href="#" class="${currentPage===totalPages?'disabled':''}" data-page="${currentPage+1}">Next</a></li>
     `;
 
@@ -289,11 +292,11 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener("click", e => {
         e.preventDefault();
         const page = parseInt(link.dataset.page);
-        if(!isNaN(page) && page>=1 && page<=totalPages){
+        if (!isNaN(page) && page >= 1 && page <= totalPages) {
           currentPage = page;
           renderProducts();
           renderPagination();
-          window.scrollTo({top: container.offsetTop - 100, behavior:'smooth'});
+          window.scrollTo({top: container.offsetTop - 100, behavior: "smooth"});
         }
       });
     });
@@ -304,13 +307,14 @@ document.addEventListener("DOMContentLoaded", () => {
       filterButtons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       currentFilter = btn.getAttribute("data-filter");
-      currentPage = 1;
+      currentPage = 1; // reset to first page when filter changes
       renderProducts();
       renderPagination();
     });
   });
 });
 </script>
+
 <!-- product section end -->
 
 
