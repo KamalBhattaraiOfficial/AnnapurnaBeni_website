@@ -177,6 +177,8 @@
             <li data-filter=".renko">Renko</li>
             <li data-filter=".doublea">DoubleA</li>
             <li data-filter=".himalcopy">Himal Copy</li>
+            <li data-filter=".nepalcopy">Nepal Copy</li>
+            <li data-filter=".frenz">Frenz</li>
             <li data-filter=".others">Others</li>
           </ul>
         </div>
@@ -206,6 +208,7 @@
       <img src="assets/img/company-logos/3.png" alt="">
       <img src="assets/img/company-logos/4.png" alt="">
       <img src="assets/img/company-logos/5.png" alt="">
+      <img src="assets/img/company-logos/6.png" alt="">
     </div>
   </div>
 </div>
@@ -228,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
       for (const brand in data) {
         data[brand].forEach(item => {
           products.push({
-            brand: brand,
+            brand: brand, // use JSON key for filtering
             name: item.title,
             image: item.image,
             code: item.code || "",
@@ -242,9 +245,9 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(err => console.error(err));
 
   function getFilteredProducts() {
-    return products.filter(
-      p => currentFilter === "*" || p.brand === currentFilter.slice(1)
-    );
+    if (currentFilter === "*") return products;
+    const filterKey = currentFilter.replace(".", ""); // remove dot
+    return products.filter(p => p.brand === filterKey);
   }
 
   function renderProducts() {
@@ -307,12 +310,13 @@ document.addEventListener("DOMContentLoaded", () => {
       filterButtons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       currentFilter = btn.getAttribute("data-filter");
-      currentPage = 1; // reset to first page when filter changes
+      currentPage = 1;
       renderProducts();
       renderPagination();
     });
   });
 });
+
 </script>
 
 <!-- product section end -->
@@ -372,7 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="about.html">Shubha Annapurna Pvt. Ltd.</a>,  All Rights Reserved.<br>
+					<p>Copyrights &copy; 2025 - <a href="about.html">Shubha Annapurna Pvt. Ltd.</a>,  All Rights Reserved.<br>
 					</p>
 				</div>
 				<div class="col-lg-6 text-right col-md-12">

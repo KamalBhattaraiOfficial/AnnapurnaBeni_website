@@ -292,7 +292,7 @@
     {
       "image": "assets/img/products/Himal-Copy/product-img- (1).jpg",
       "subtitle": "Himal & Nepal Copy",
-      "title": "Classmate Copy",
+      "title": "Index File",
       "link": "single-product.html"
     },
     {
@@ -304,25 +304,93 @@
     {
       "image": "assets/img/products/Himal-Copy/product-img- (3).jpg",
       "subtitle": "Himal & Nepal Copy",
-      "title": "Pencils",
+      "title": "Classmate Copy",
       "link": "single-product.html"
     },
     {
       "image": "assets/img/products/Himal-Copy/product-img- (4).jpg",
       "subtitle": "Himal & Nepal Copy",
+      "title": "Classmate Copy",
+      "link": "single-product.html"
+    }
+  ],
+  "frenz": [
+    {
+      "image": "assets/img/products/Frenz/product-img- (1).jpg",
+      "subtitle": "Himal & Nepal Copy",
+      "title": "Classmate Copy",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Frenz/product-img- (2).jpg",
+      "subtitle": "Himal & Nepal Copy",
+      "title": "Classmate Copy",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Frenz/product-img- (3).jpg",
+      "subtitle": "Himal & Nepal Copy",
+      "title": "Pencils",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Frenz/product-img- (4).jpg",
+      "subtitle": "Himal & Nepal Copy",
       "title": "Index File",
       "link": "single-product.html"
     },
     {
-      "image": "assets/img/products/Himal-Copy/product-img- (5).jpg",
+      "image": "assets/img/products/Frenz/product-img- (5).jpg",
       "subtitle": "Classmate Copy",
       "title": "Highlighters",
       "link": "single-product.html"
     },
     {
-      "image": "assets/img/products/Himal-Copy/product-img- (6).jpg",
+      "image": "assets/img/products/Frenz/product-img- (6).jpg",
       "subtitle": "Himal & Nepal Copy",
       "title": "Erasers",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Frenz/product-img- (7).jpg",
+      "subtitle": "Himal & Nepal Copy",
+      "title": "Frenz Pencils",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Frenz/product-img- (8).jpg",
+      "subtitle": "Himal & Nepal Copy",
+      "title": "Frenz Markers",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Frenz/product-img- (9).jpg",
+      "subtitle": "Himal & Nepal Copy",
+      "title": "Frenz Highlighters",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Frenz/product-img- (10).jpg",
+      "subtitle": "Himal & Nepal Copy",
+      "title": "Frenz Erasers",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Frenz/product-img- (11).jpg",
+      "subtitle": "Himal & Nepal Copy",
+      "title": "Frenz Sharpener",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Frenz/product-img- (12).jpg",
+      "subtitle": "Himal & Nepal Copy",
+      "title": "Frenz Color Pencils",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Frenz/product-img- (13).jpg",
+      "subtitle": "Himal & Nepal Copy",
+      "title": "Frenz Sketch Pens",
       "link": "single-product.html"
     }
   ],
@@ -341,26 +409,26 @@
     },
     {
       "image": "assets/img/products/Nepal-Copy/product-img- (3).jpg",
-      "subtitle": "Gurukul Premium Copy",
-      "title": "Pencils",
+      "subtitle": "Himal & Nepal Copy",
+      "title": "Gurukul Premium Copy",
       "link": "single-product.html"
     },
     {
       "image": "assets/img/products/Nepal-Copy/product-img- (4).jpg",
-      "subtitle": "Gurukul Copy",
-      "title": "Markers",
+      "subtitle": "Himal & Nepal Copy",
+      "title": "Gurukul Copy",
       "link": "single-product.html"
     },
     {
       "image": "assets/img/products/Nepal-Copy/product-img- (5).jpg",
-      "subtitle": "Gurukul Copy",
-      "title": "Highlighters",
+      "subtitle": "Himal & Nepal Copy",
+      "title": "Gurukul Copy",
       "link": "single-product.html"
     },
     {
       "image": "assets/img/products/Nepal-Copy/product-img- (6).jpg",
-      "subtitle": "Gurukul Drawing Copy",
-      "title": "Erasers",
+      "subtitle": "Himal & Nepal Copy",
+      "title": "Gurukul Drawing Copy",
       "link": "single-product.html"
     }
   ],
