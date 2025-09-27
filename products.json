@@ -432,6 +432,20 @@
       "link": "single-product.html"
     }
   ],
+  "mikasa": [
+    {
+      "image": "assets/img/products/Mikasa/product-img- (1).jpg",
+      "subtitle": "mikasa",
+      "title": "Mikasa Volley Ball",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Mikasa/product-img- (2).jpg",
+      "subtitle": "mikasa",
+      "title": " MIKASA BeatMaster",
+      "link": "single-product.html"
+    }
+  ],
   "others": [
     {
       "image": "assets/img/products/Other/product-img- (1).jpg",

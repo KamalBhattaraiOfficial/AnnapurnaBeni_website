@@ -148,99 +148,222 @@
 	<!-- end breadcrumb section -->
 
 <!-- PRODUCTS SECTION -->
-<style>
-.product-section { margin-bottom: 80px; }
-.product-filters ul { list-style: none; padding: 0; display: flex; gap: 15px; flex-wrap: wrap; }
-.product-filters li { padding: 8px 16px; background: #f2f2f2; cursor: pointer; border-radius: 5px; transition: 0.3s; }
-.product-filters li.active, .product-filters li:hover { background: #f28123; color: #fff; }
-.single-product-item { background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); height: 100%; display: flex; flex-direction: column; }
-.single-product-item img { width: 100%; height: 250px; object-fit: cover; border-radius: 5px; margin-bottom: 10px; }
-.pagination-wrap { margin-top: 50px; margin-bottom: 50px; }
-.pagination-wrap ul { list-style: none; display: flex; justify-content: center; gap: 10px; padding: 0; }
-.pagination-wrap ul li a { padding: 8px 12px; background: #f2f2f2; border-radius: 5px; text-decoration: none; color: #333; }
-.pagination-wrap ul li a.active, .pagination-wrap ul li a:hover { background: #f28123; color: #fff; }
-.pagination-wrap ul li a.disabled { pointer-events: none; opacity: 0.5; }
-.logo-carousel-section { padding: 50px 0; }
-.logo-carousel-inner { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
-.logo-carousel-inner img { max-width: 100px; height: auto; }
-</style>
+	<style>
+	/* Section */
 
+/* Filter List Styling (clean + inline) */
+.filter-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 40px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.filter-list li {
+  font-size: 18px;
+  font-weight: 500;
+  color: #0c1c2c;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.filter-list li:hover {
+  color: #F28123;
+
+}
+
+.filter-list li.active {
+  color: #F28123;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Product Card */
+.single-product-item {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.single-product-item:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transform: translateY(-3px);
+}
+.single-product-item img {
+  width: auto;
+  max-height: 220px;
+  margin: 0 auto 15px;
+  display: block;
+  object-fit: contain;
+}
+.single-product-item h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 10px 0;
+  color: #222;
+}
+.product-code {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+/* Grid spacing */
+#productList .col-lg-4 { margin-bottom: 30px; }
+
+/* Pagination */
+.pagination-wrap { margin-top: 40px; }
+.pagination-wrap ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 0;
+}
+.pagination-wrap ul li a {
+  padding: 8px 12px;
+  background: #f2f2f2;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  transition: 0.3s;
+}
+.pagination-wrap ul li a.active,
+.pagination-wrap ul li a:hover {
+  background: #f28123;
+  color: #fff;
+}
+.pagination-wrap ul li a.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+/* ============================= */
+/* RESPONSIVE DESIGN FIXES       */
+/* ============================= */
+
+/* Tablet (≤ 991px) */
+@media (max-width: 991px) {
+  .filter-list {
+    gap: 20px;
+    flex-wrap: wrap; /* allow wrapping */
+    justify-content: center;
+    margin: 15px 0 30px;
+  }
+
+  .filter-list li {
+    font-size: 16px;
+  }
+
+  .single-product-item img {
+    max-height: 180px;
+  }
+}
+
+/* Mobile (≤ 767px) */
+@media (max-width: 767px) {
+  .filter-list {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .filter-list li {
+    font-size: 15px;
+  }
+
+  .single-product-item {
+    padding: 15px;
+  }
+
+  .single-product-item h3 {
+    font-size: 14px;
+  }
+
+  .product-code {
+    font-size: 12px;
+  }
+}
+
+/* Extra Small Mobile (≤ 480px) */
+@media (max-width: 480px) {
+  .filter-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .filter-list li {
+    font-size: 14px;
+  }
+
+  .pagination-wrap ul {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .pagination-wrap ul li a {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
+
+	</style>
+</head>
+<body>
+
+
+
+	<!-- PRODUCTS SECTION -->
 <div class="product-section">
   <div class="container">
-    <!-- FILTER BUTTONS -->
+    <!-- FILTER OPTIONS -->
     <div class="row mb-4">
-      <div class="col-md-12">
-        <div class="product-filters">
-  <ul>
-    <li class="active" data-filter="*">
-      All
-    </li>
-    <li data-filter=".doms">
-      <img src="assets/img/company-logos/6.png" alt="DOMS" style="height:20px; width:auto; margin-right:5px;">
-      DOMS
-    </li>
-    <li data-filter=".renko">
-      <img src="assets/img/company-logos/2.png" alt="Renko" style="height:20px; width:auto; margin-right:5px;">
-      Renko
-    </li>
-    <li data-filter=".doublea">
-      <img src="assets/img/company-logos/5.png" alt="DoubleA" style="height:20px; width:auto; margin-right:5px;">
-      DoubleA
-    </li>
-    <li data-filter=".himalcopy">
-      <img src="assets/img/company-logos/3.png" alt="Himal Copy" style="height:20px; width:auto; margin-right:5px;">
-      Himal Copy
-    </li>
-    <li data-filter=".nepalcopy">
-      <img src="assets/img/company-logos/4.png" alt="Nepal Copy" style="height:20px; width:auto; margin-right:5px;">
-      Nepal Copy
-    </li>
-    <li data-filter=".frenz">
-      <img src="assets/img/company-logos/1.png" alt="Frenz" style="height:20px; width:auto; margin-right:5px;">
-      Frenz
-    </li>
-    <li data-filter=".others">
-      <img src="assets/img/company-logos/7.png" alt="Others" style="height:20px; width:auto; margin-right:5px;">
-      Others
-    </li>
-  </ul>
-</div>
-
+      <div class="col-md-12 text-center">
+        <ul class="filter-list">
+          <li class="active" data-filter="*">All</li>
+          <li data-filter=".doms">DOMS</li>
+          <li data-filter=".renko">Renko</li>
+          <li data-filter=".doublea">DoubleA</li>
+          <li data-filter=".himalcopy">Himal Copy</li>
+          <li data-filter=".nepalcopy">Nepal Copy</li>
+          <li data-filter=".frenz">Frenz</li>
+          <li data-filter=".mikasa">Mikasa</li>
+          <li data-filter=".others">Others</li>
+        </ul>
       </div>
     </div>
 
-    <!-- PRODUCT GRID -->
-    <div class="row" id="productList"></div>
+	    <!-- PRODUCT GRID -->
+	    <div class="row" id="productList"></div>
 
-    <!-- PAGINATION -->
-    <div class="row">
-      <div class="col-12 text-center">
-        <div class="pagination-wrap">
-          <ul id="pagination"></ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+	    <!-- PAGINATION -->
+	    <div class="row">
+	      <div class="col-12 text-center">
+	        <div class="pagination-wrap">
+	          <ul id="pagination"></ul>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
-<!-- LOGO CAROUSEL -->
-<div class="logo-carousel-section">
-  <div class="container">
-    <div class="logo-carousel-inner">
-      <img src="assets/img/company-logos/1.png" alt="">
-      <img src="assets/img/company-logos/2.png" alt="">
-      <img src="assets/img/company-logos/3.png" alt="">
-      <img src="assets/img/company-logos/4.png" alt="">
-      <img src="assets/img/company-logos/5.png" alt="">
-      <img src="assets/img/company-logos/6.png" alt="">
-    </div>
-  </div>
-</div>
+	<!-- FOOTER (simplified) -->
+	<div class="text-center py-4" style="background:#f9f9f9; border-top:1px solid #eee;">
+		<p>&copy; 2025 Shuva Annapurna Pvt. Ltd. | All Rights Reserved</p>
+	</div>
 
-<script>
+	<!-- Scripts -->
+	<script>
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("productList");
-  const filterButtons = document.querySelectorAll(".product-filters li");
+  const filterButtons = document.querySelectorAll(".filter-list li"); // ✅ FIXED
   const paginationContainer = document.getElementById("pagination");
 
   let products = [];
@@ -255,11 +378,10 @@ document.addEventListener("DOMContentLoaded", () => {
       for (const brand in data) {
         data[brand].forEach(item => {
           products.push({
-            brand: brand, // use JSON key for filtering
+            brand: brand,
             name: item.title,
             image: item.image,
-            code: item.code || "",
-            link: item.link || "#"
+            code: item.code || ""
           });
         });
       }
@@ -270,7 +392,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function getFilteredProducts() {
     if (currentFilter === "*") return products;
-    const filterKey = currentFilter.replace(".", ""); // remove dot
+    const filterKey = currentFilter.replace(".", "");
     return products.filter(p => p.brand === filterKey);
   }
 
@@ -285,13 +407,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="col-lg-4 col-md-6 mb-4 ${p.brand}">
           <div class="single-product-item">
             <div class="product-image">
-              <a href="${p.link}">
-                <img src="${p.image}" alt="${p.name}">
-              </a>
+              <img src="${p.image}" alt="${p.name}">
             </div>
             <h3>${p.name}</h3>
             ${p.code ? `<p class="product-code">Code No: ${p.code}</p>` : ""}
-            <a href="${p.link}" class="view-btn">View More</a>
           </div>
         </div>
       `;
@@ -341,7 +460,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-</script>
+	
+	</script>
 
 <!-- product section end -->
 

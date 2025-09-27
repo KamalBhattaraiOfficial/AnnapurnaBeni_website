@@ -31,88 +31,62 @@
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
 
-</head>
-<body>
-	
-	<!--PreLoader-->
-    <div class="loader">
-        <div class="loader-inner">
-            <div class="circle"></div>
+<!-- header -->
+<div class="top-header-area" id="sticker" style="height: 90px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-sm-12 text-center">
+        <div class="main-menu-wrap">
+          <!-- logo -->
+          <div class="site-logo">
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+              <img src="assets/img/logo.png" alt="" style="height: 40px; width: auto; margin-right: 10px;">
+              <h3 style="color: #F28123; margin: 0; line-height: 1.2; text-align: start;font-size: 14px;">
+                Shuva Annapurna <br><span>Pvt. Ltd.</span>
+              </h3>
+            </a>
+          </div>
+          <!-- logo -->
+
+          <!-- menu start -->
+          <nav class="main-menu">
+            <ul>
+              <li class="current-list-item"><a href="index.html">Home</a></li>
+
+              <!-- Products Dropdown -->
+              <li class="menu-item-has-children">
+                <a href="products.html">Products & Services</a>
+                <ul class="sub-menu">
+                  <li><a href="products.html?filter=doms">DOMS</a></li>
+                  <li><a href="products.html?filter=renko">Renko</a></li>
+                  <li><a href="products.html?filter=doublea">DoubleA</a></li>
+                  <li><a href="products.html?filter=himalcopy">Himal Copy</a></li>
+                  <li><a href="products.html?filter=nepalcopy">Nepal Copy</a></li>
+                  <li><a href="products.html?filter=frenz">Frenz</a></li>
+                  <li><a href="products.html?filter=mikasa">Mikasa</a></li>
+                  <li><a href="products.html?filter=others">Others</a></li>
+                </ul>
+              </li>
+
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li>
+                <div class="header-icons">
+                  <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+          <div class="mobile-menu"></div>
+          <!-- menu end -->
         </div>
+      </div>
     </div>
-    <!--PreLoader Ends-->
-	
-	<!-- header -->
-	<div class="top-header-area" id="sticker" style="height: 90px;">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 col-sm-12 text-center">
-					<div class="main-menu-wrap">
-						<!-- logo -->
-							<div class="site-logo">
-								<a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-									<img src="assets/img/logo.png" alt="" style="height: 40px; width: auto; margin-right: 10px;">
-									<h3 style="color: #F28123; margin: 0; line-height: 1.2; text-align: start;font-size: 14px;">
-										Shuva Annapurna <br><span >Pvt. Ltd.</span>
-									</h3>
-								</a>
-							</div>
-							<!-- logo -->
+  </div>
+</div>
+<!-- end header -->
 
-
-						<!-- menu start -->
-						<nav class="main-menu">
-							<ul>
-								<li class="current-list-item"><a href="#">Home</a>
-									<!-- <ul class="sub-menu">
-										<li><a href="index.html">Static Home</a></li>
-										<li><a href="index_2.html">Slider Home</a></li>
-									</ul> -->
-								</li>
-								<li><a href="products.html">Products & Services</a>
-									<!-- <ul class="sub-menu">
-										<li><a href="shop.html">Shop</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="single-product.html">Single Product</a></li>
-										<li><a href="cart.html">Cart</a></li>
-									</ul> -->
-								</li>
-								<li><a href="about.html">About</a></li>
-								<!-- <li><a href="#">Pages</a>
-									<ul class="sub-menu">
-										<li><a href="404.html">404 page</a></li>
-										<li><a href="about.html">About</a></li>
-										<li><a href="cart.html">Cart</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="contact.html">Contact</a></li>
-										<li><a href="news.html">News</a></li>
-										<li><a href="shop.html">Shop</a></li>
-									</ul>
-								</li> -->
-								<!-- <li><a href="news.html">News</a>
-									<ul class="sub-menu">
-										<li><a href="news.html">News</a></li>
-										<li><a href="single-news.html">Single News</a></li>
-									</ul>
-								</li> -->
-								<li><a href="contact.html">Contact</a></li>
-								<li>
-									<div class="header-icons">
-										<!-- <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a> -->
-										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-									</div>
-								</li>
-							</ul>
-						</nav>
-						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-						<div class="mobile-menu"></div>
-						<!-- menu end -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end header -->
 	
 	<!-- search area -->
 	<div class="search-area">
@@ -883,6 +857,132 @@
     </div>
 </div>
 <!-- end copyright -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Detect if we are on products page (has #productList)
+  const container = document.getElementById("productList");
+  if (!container) return; // Exit if not products.html
+
+  const filterButtons = document.querySelectorAll(".filter-list li");
+  const paginationContainer = document.getElementById("pagination");
+
+  let products = [];
+  let currentPage = 1;
+  const itemsPerPage = 27;
+  let currentFilter = "*";
+
+  // ✅ Read filter from URL if present
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlFilter = urlParams.get("filter");
+  if (urlFilter) {
+    currentFilter = "." + urlFilter; // e.g. ".doms"
+  }
+
+  // ✅ Fetch products
+  fetch("products.json")
+    .then(res => res.json())
+    .then(data => {
+      products = [];
+      for (const brand in data) {
+        data[brand].forEach(item => {
+          products.push({
+            brand: brand,
+            name: item.title,
+            image: item.image,
+            code: item.code || ""
+          });
+        });
+      }
+
+      // ✅ Highlight active filter if loaded from URL
+      if (urlFilter) {
+        filterButtons.forEach(btn => {
+          if (btn.getAttribute("data-filter") === "." + urlFilter) {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+      }
+
+      renderProducts();
+      renderPagination();
+    })
+    .catch(err => console.error("Error loading products:", err));
+
+  // ✅ Filter button clicks
+  filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      currentFilter = btn.getAttribute("data-filter");
+      filterButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentPage = 1;
+      renderProducts();
+      renderPagination();
+    });
+  });
+
+  // ✅ Render Products
+  function renderProducts() {
+    container.innerHTML = "";
+    let filtered = products;
+
+    if (currentFilter !== "*") {
+      const brandClass = currentFilter.replace(".", "");
+      filtered = products.filter(p => p.brand.toLowerCase() === brandClass);
+    }
+
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const paginated = filtered.slice(start, end);
+
+    paginated.forEach(product => {
+      const col = document.createElement("div");
+      col.className = "col-lg-4 col-md-6 mb-4 " + product.brand.toLowerCase();
+      col.innerHTML = `
+        <div class="single-product-item">
+          <img src="${product.image}" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <p class="product-code">${product.code}</p>
+        </div>
+      `;
+      container.appendChild(col);
+    });
+  }
+
+  // ✅ Render Pagination
+  function renderPagination() {
+    paginationContainer.innerHTML = "";
+    let filtered = products;
+
+    if (currentFilter !== "*") {
+      const brandClass = currentFilter.replace(".", "");
+      filtered = products.filter(p => p.brand.toLowerCase() === brandClass);
+    }
+
+    const totalPages = Math.ceil(filtered.length / itemsPerPage);
+    if (totalPages <= 1) return;
+
+    for (let i = 1; i <= totalPages; i++) {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.textContent = i;
+      a.href = "#";
+      if (i === currentPage) a.classList.add("active");
+
+      a.addEventListener("click", e => {
+        e.preventDefault();
+        currentPage = i;
+        renderProducts();
+        renderPagination();
+      });
+
+      li.appendChild(a);
+      paginationContainer.appendChild(li);
+    }
+  }
+});
+</script>
 
 	
 	<!-- jquery -->
