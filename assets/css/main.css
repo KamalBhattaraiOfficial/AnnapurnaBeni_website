@@ -1467,9 +1467,35 @@ input[type="submit"] {
   border-radius: 3px;
 }
 
+/* Default for desktop */
 .homepage-bg-1 {
   background-image: url(../img/hero-bg.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh; /* full viewport height */
 }
+
+.hero-text {
+  padding-top: 300px; /* Correct CSS syntax */
+}
+
+/* For small screens (phones) */
+@media (max-width: 768px) {
+  .homepage-bg-1 {
+    background-image: url(../img/hero-bg-small.jpg); /* optional: use smaller image */
+    background-size: 100% auto;      /* fit full width, height adjusts */
+    background-position: center top; /* align to top */
+    background-repeat: no-repeat;
+    height: auto;                    /* container height adjusts to image */
+    min-height: 100vh;               /* optional: maintain minimum screen height */
+  }
+
+  .hero-text {
+    padding-top: 600px; /* Correct CSS syntax */
+  }
+}
+
 
 .homepage-bg-2 {
   background-image: url(../img/hero-bg-2.jpg);
