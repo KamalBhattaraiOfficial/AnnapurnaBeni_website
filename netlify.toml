@@ -1,0 +1,8 @@
+[build]
+  publish = "dist" # or your folder name (e.g., build or public)
+
+[[plugins]]
+  package = "netlify-plugin-minify-html"
+
+[[plugins]]
+  package = "netlify-plugin-inline-critical-css"
