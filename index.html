@@ -127,18 +127,30 @@
 
       <!-- Left Video -->
       <div class="video-container">
-        <video autoplay muted loop playsinline>
-          <source src="/assets/img/products/Doms/product-video- (1).mp4" type="video/mp4">
-          Your browser does not support the video tag.
+        <video
+          class="hero-video"
+          muted
+          playsinline
+          loop
+          preload="none"
+          poster="/assets/img/products/Doms/poster-1.jpg"
+          data-src-desktop="/assets/img/products/Doms/product-video- (1).mp4"
+          data-src-mobile="/assets/img/products/Doms/mobile/product-video-1-480p.mp4">
         </video>
         <div class="video-overlay"></div>
       </div>
 
       <!-- Right Video -->
       <div class="video-container">
-        <video autoplay muted loop playsinline>
-          <source src="/assets/img/products/Doms/product-video- (2).mp4" type="video/mp4">
-          Your browser does not support the video tag.
+        <video
+          class="hero-video"
+          muted
+          playsinline
+          loop
+          preload="none"
+          poster="/assets/img/products/Doms/poster-2.jpg"
+          data-src-desktop="/assets/img/products/Doms/product-video- (2).mp4"
+          data-src-mobile="/assets/img/products/Doms/mobile/product-video-2-480p.mp4">
         </video>
         <div class="video-overlay"></div>
       </div>
@@ -166,24 +178,36 @@
     </div>
   </div>
 
-<!-- Second Video Slider -->
+  <!-- Second Video Slider -->
   <div class="single-homepage-slider">
     <div class="video-row">
 
       <!-- Left Video -->
       <div class="video-container">
-        <video autoplay muted loop playsinline>
-          <source src="/assets/img/products/Nepal-Copy/product-video- (1).mp4" type="video/mp4">
-          Your browser does not support the video tag.
+        <video
+          class="hero-video"
+          muted
+          playsinline
+          loop
+          preload="none"
+          poster="/assets/img/products/Nepal-Copy/poster-1.jpg"
+          data-src-desktop="/assets/img/products/Nepal-Copy/product-video- (1).mp4"
+          data-src-mobile="/assets/img/products/Nepal-Copy/mobile/product-video-1-480p.mp4">
         </video>
         <div class="video-overlay"></div>
       </div>
 
       <!-- Right Video -->
       <div class="video-container">
-        <video autoplay muted loop playsinline>
-          <source src="/assets/img/products/Nepal-Copy/product-video- (2).mp4" type="video/mp4">
-          Your browser does not support the video tag.
+        <video
+          class="hero-video"
+          muted
+          playsinline
+          loop
+          preload="none"
+          poster="/assets/img/products/Nepal-Copy/poster-2.jpg"
+          data-src-desktop="/assets/img/products/Nepal-Copy/product-video- (2).mp4"
+          data-src-mobile="/assets/img/products/Nepal-Copy/mobile/product-video-2-480p.mp4">
         </video>
         <div class="video-overlay"></div>
       </div>
@@ -243,32 +267,43 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
 }
 
 /* Video Container */
 .video-container {
-  flex: 0 0 50%; /* exactly half of row */
+  flex: 0 0 50%; /* half width on desktop */
   position: relative;
   overflow: hidden;
   margin: 0;
   padding: 0;
+  background: #000;
+  aspect-ratio: 16 / 9; /* reserve space to avoid CLS */
 }
 
-.video-container video {
+/* Fill container */
+.video-container > video,
+.video-container > .video-overlay {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+}
+
+.video-container > video {
   object-fit: cover; /* fills container, no gaps */
   display: block;
 }
 
 /* Black Overlay */
 .video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   background: rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+
+/* Fallback for browsers without aspect-ratio */
+@supports not (aspect-ratio: 1) {
+  .video-container { padding-top: 56.25%; } /* 16:9 */
 }
 
 /* Responsive */
@@ -291,6 +326,78 @@
   }
 }
 </style>
+
+<!-- Lazy-load and mobile-first video loader -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+  const saveData = !!(navigator.connection && navigator.connection.saveData);
+  const videos = document.querySelectorAll('.hero-video');
+
+  const pickSrc = (video) => {
+    if (saveData && video.dataset.srcTiny) return video.dataset.srcTiny; // optional ultra-light version
+    if (isMobile() && video.dataset.srcMobile) return video.dataset.srcMobile;
+    return video.dataset.srcDesktop || video.dataset.srcMobile || '';
+  };
+
+  const tryPlay = (video) => {
+    if (!video) return;
+    video.muted = true; // ensure autoplay on iOS
+    const p = video.play();
+    if (p && typeof p.then === 'function') p.catch(() => {});
+  };
+
+  const loadVideo = (video) => {
+    if (video.dataset.loaded === '1') return;
+    const src = pickSrc(video);
+    if (!src) return;
+
+    video.src = src;
+    video.load();
+
+    const onCanPlay = () => {
+      tryPlay(video);
+      video.removeEventListener('canplay', onCanPlay);
+    };
+    video.addEventListener('canplay', onCanPlay);
+
+    video.dataset.loaded = '1';
+  };
+
+  const observe = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const v = entry.target;
+      if (entry.isIntersecting) {
+        if (v.dataset.loaded !== '1') loadVideo(v);
+        else tryPlay(v);
+      } else {
+        v.pause();
+      }
+    });
+  }, { rootMargin: '200px 0px', threshold: 0.25 }) : null;
+
+  videos.forEach(v => {
+    if (observe) observe.observe(v);
+    else { // Fallback for very old browsers
+      loadVideo(v);
+      tryPlay(v);
+    }
+  });
+
+  // Pause when tab hidden, resume when visible and in view
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      videos.forEach(v => v.pause());
+    } else {
+      videos.forEach(v => {
+        const r = v.getBoundingClientRect();
+        const inView = r.top < window.innerHeight && r.bottom > 0;
+        if (inView) tryPlay(v);
+      });
+    }
+  });
+});
+</script>
 
 
 
