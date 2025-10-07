@@ -446,6 +446,74 @@
       "link": "single-product.html"
     }
   ],
+  "surya": [
+    {
+      "image": "assets/img/products/Surya/product-img- (1).jpg",
+      "subtitle": "Surya",
+      "title": "Surya A4 Paper",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Surya/product-img- (2).jpg",
+      "subtitle": "Surya",
+      "title": "Surya A4 Glue Stick",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Surya/product-img- (3).jpg",
+      "subtitle": "Surya",
+      "title": "Surya A4 Paper",
+      "link": "single-product.html"
+    },  
+    {
+      "image": "assets/img/products/Surya/product-img- (4).jpg",
+      "subtitle": "Surya",
+      "title": "Surya A5 Paper",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Surya/product-img- (5).jpg",
+      "subtitle": "Surya",
+      "title": "Surya Color Highlighters",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Surya/product-img- (6).jpg",
+      "subtitle": "Surya",
+      "title": "Surya Cutter",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Surya/product-img- (7).jpg",
+      "subtitle": "Surya",
+      "title": "Surya A4 Glue Stick",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Surya/product-img- (8).jpg",
+      "subtitle": "Surya",
+      "title": "Surya A4 Paper",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Surya/product-img- (9).jpg",
+      "subtitle": "Surya",
+      "title": "Surya A4 Paper",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Surya/product-img- (10).jpg",
+      "subtitle": "Surya",
+      "title": "Surya A4 Paper",
+      "link": "single-product.html"
+    },
+    {
+      "image": "assets/img/products/Surya/product-img- (11).jpg",
+      "subtitle": "Surya",
+      "title": "Surya A4 Paper",
+      "link": "single-product.html"
+    }
+  ],
   "others": [
     {
       "image": "assets/img/products/Other/product-img- (1).jpg",

@@ -1361,7 +1361,7 @@ a.mobile-show.search-bar-icon:hover {
 
 ----------------------------------------------------------------------------- */
 .hero-bg {
-  background-image: url(../img/hero-bg.jpg);
+  background-image: url(../img/hero-bg.webp);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -1469,7 +1469,7 @@ input[type="submit"] {
 
 /* Default for desktop */
 .homepage-bg-1 {
-  background-image: url(../img/hero-bg.jpg);
+  background-image: url(../img/hero-bg.webp);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1483,7 +1483,7 @@ input[type="submit"] {
 /* For small screens (phones) */
 @media (max-width: 768px) {
   .homepage-bg-1 {
-    background-image: url(../img/hero-bg-small.jpg); /* optional: use smaller image */
+    background-image: url(../img/hero-bg-small.webp); /* optional: use smaller image */
     background-size: 100% auto;      /* fit full width, height adjusts */
     background-position: center top; /* align to top */
     background-repeat: no-repeat;
@@ -1498,11 +1498,11 @@ input[type="submit"] {
 
 
 .homepage-bg-2 {
-  background-image: url(../img/hero-bg-2.jpg);
+  background-image: url(../img/hero-bg-2.webp);
 }
 
 .homepage-bg-3 {
-  background-image: url(../img/hero-bg-3.jpg);
+  background-image: url(../img/hero-bg-3.webp);
 }
 
 .homepage-slider {
@@ -2184,7 +2184,7 @@ a.video-play-btn {
 }
 
 .feature-bg:after {
-  background-image: url(../img/feature-bg.jpg);
+  background-image: url(../img/feature-bg.webp);
   position: absolute;
   right: 0;
   top: 0;

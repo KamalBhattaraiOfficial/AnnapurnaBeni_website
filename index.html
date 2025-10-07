@@ -73,6 +73,7 @@
                   <li><a href="products.html?filter=nepalcopy">Nepal Copy</a></li>
                   <li><a href="products.html?filter=frenz">Frenz</a></li>
                   <li><a href="products.html?filter=mikasa">Mikasa</a></li>
+                  <li><a href="products.html?filter=surya">Surya Ledger</a></li>
                   <li><a href="products.html?filter=others">Others</a></li>
                 </ul>
               </li>
@@ -216,7 +217,7 @@
       <div class="row">
         <div class="col-lg-10 offset-lg-1 text-right">
           <div class="hero-text">
-            <div class="hero-text-tablecell" style="padding-top: 300px;">
+            <div class="hero-text-tablecell" style="padding-top: 50px;">
               <p class="subtitle">Serving Beni, Myagdi</p>
               <h1>Quality Stationery at Wholesale Prices</h1>
               <div class="hero-btns">
@@ -294,196 +295,131 @@
 
 
 	
-	<!-- logo carousel -->
-	<section class="d-flex flex-column justify-content-center align-items-center">
-		<!-- CSS styles for the carousel -->
-		<style>
-			:root {
-				--off-white: #fff;
-						--light-gray: #9ca6a2;
-					}
-					
-					@keyframes infiniteLoop {
-						0% {
-							transform: translate3d(0, 0, 0);
-						}
-						100% {
-							transform: translate3d(calc(-100px * 10), 0, 0);
-						}
-					}
-					
-					section {
-						background: var(--off-white);
-						margin: 30px 0;
-					}
-					
-					.brandsCarousel {
-						max-width: 90vw;
-						max-height: 50px;
-						margin: auto;
-						overflow: hidden;
-						position: relative;
-					}
-					
-					.brandsCarousel::before,
-					.brandsCarousel::after {
-						content: "";
-						width: 100px;
-						height: 100px;
-						background: linear-gradient(to right, rgba(250, 250, 240, 1) 0%, rgba(250, 250, 240, 0) 100%);
-						position: absolute;
-						z-index: 2;
-					}
-					
-					.brandsCarousel::before {
-						top: 0;
-						left: 0;
-					}
-					
-					.brandsCarousel::after {
-						top: 0;
-						right: 0;
-						transform: rotateZ(180deg);
-					}
-					
-					.carouselTrack {
-						width: calc(100px * 20);
-						animation: infiniteLoop 30s linear infinite;
-						animation-fill-mode: forwards;
-						
-					}
-					
-					.brandLogo {
-						width: 100px;
-						height: 50px;
-						align-items: center;
-						align-content: center;
-						justify-self: center;
-						justify-items: center;
-						margin: auto;
-						overflow: hidden;
-					}
-					
-					.brandLogo svg {
-						width: 100px;
-						height: 50px;
-					}
-					
-					/*
-					
-					NOTE: The content below includes copyright notice information;
-					You may safely omit this content, as it is not essential to the functionality of the carousel.
-					
-					*/
-					
-					:root {
-						--dark-gray: #71797e;
-						--heart-red: #a60311;
-						--light-blue: #0096ff;
-					}
-					
-					@import url(https://fonts.bunny.net/css?family=source-code-pro:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i);
-					
-					@keyframes beat {
-						to {
-							transform: scale(1.2);
-						}
-					}
-					
-					.copyrightNotice {
-						font-family: 'Source Code Pro', monospace;
-						font-size: 1rem;
-						font-weight: 600;
-						color: var(--dark-gray);
-					}
-					
-					#heart {
-						width: 1rem;
-						height: 1rem;
-						animation: beat .25s infinite alternate;
-					}
-					
-					a {
-						text-decoration: none;
-						color: var(--light-blue);
-						position: relative;
-					}
-					
-					a::after {
-						content: "";
-						width: 0;
-						height: 0.125rem;
-						left: 0;
-						bottom: 0;
-						transition: width .4s ease;
-						background: var(--light-blue);
-						position: absolute;
-					}
-					
-					a:hover::after {
-						width: 100%;
-					}
-			</style>
-			<div class="container brandsCarousel">
-				<div class="d-flex carouselTrack p-2">
-					
-					<!-- Original logos -->
-					<div class="brandLogo" style="flex: 0 0 auto;">
-						<img src="assets/img/company-logos/1.png" alt="Logo 1" style="max-width: 100%; height: auto; display: block;">
-					</div>
-					<div class="brandLogo" style="flex: 0 0 auto;">
-						<img src="assets/img/company-logos/2.png" alt="Logo 2" style="max-width: 100%; height: auto; display: block;">
-					</div>
-					<div class="brandLogo" style="flex: 0 0 auto;">
-						<img src="assets/img/company-logos/3.png" alt="Logo 3" style="max-width: 100%; height: auto; display: block;">
-					</div>
-					<div class="brandLogo" style="flex: 0 0 auto;">
-						<img src="assets/img/company-logos/4.png" alt="Logo 4" style="max-width: 100%; height: auto; display: block;">
-					</div>
-					<div class="brandLogo" style="flex: 0 0 auto;">
-						<img src="assets/img/company-logos/5.png" alt="Logo 5" style="max-width: 100%; height: auto; display: block;">
-					</div>
-					<div class="brandLogo" style="flex: 0 0 auto;">
-						<img src="assets/img/company-logos/6.png" alt="Logo 6" style="max-width: 100%; height: auto; display: block;">
-					</div>
-					<div class="brandLogo" style="flex: 0 0 auto;">
-						<img src="assets/img/company-logos/7.png" alt="Logo 6" style="max-width: 100%; height: auto; display: block;">
-					</div>
-					
-					<!-- Cloned logos for seamless infinite loop -->
-					
-					<div class="brandLogo" style="flex: 0 0 auto;">
-						<img src="assets/img/company-logos/1.png" alt="Logo 1" style="max-width: 100%; height: auto; display: block;">
-					</div>
-					<div class="brandLogo" style="flex: 0 0 auto;">
-						<img src="assets/img/company-logos/2.png" alt="Logo 2" style="max-width: 100%; height: auto; display: block;">
-					</div>
-					<div class="brandLogo" style="flex: 0 0 auto;">
-						<img src="assets/img/company-logos/3.png" alt="Logo 3" style="max-width: 100%; height: auto; display: block;">
-					</div>
-					<div class="brandLogo" style="flex: 0 0 auto;">
-						<img src="assets/img/company-logos/4.png" alt="Logo 4" style="max-width: 100%; height: auto; display: block;">
-					</div>
-					<div class="brandLogo" style="flex: 0 0 auto;">
-						<img src="assets/img/company-logos/5.png" alt="Logo 5" style="max-width: 100%; height: auto; display: block;">
-					</div>
-					<div class="brandLogo" style="flex: 0 0 auto;">
-						<img src="assets/img/company-logos/6.png" alt="Logo 6" style="max-width: 100%; height: auto; display: block;">
-					</div>
-				</div>
-				<!---
-				
-				NOTE: The content below includes copyright notice information;
-				You may safely omit this content, as it is not essential to the functionality of the carousel.
-				
-				IMPORTANT: If you choose to omit this content, ensure that you properly close all relevant tags, such as </section>.
-				
-				--->
-				
-		</section>
-	<!-- end logo carousel -->
+<!-- logo carousel -->
+<section class="brandsSection d-flex flex-column justify-content-center align-items-center">
+  <style>
+    :root {
+      --off-white: #f9f9f9; /* soft gray like the previous style */
+      --logo-w: 120px;       /* larger logo width */
+      --logo-h: 60px;        /* larger logo height */
+      --logo-gap: 40px;      /* wider spacing like before */
+      --count: 8;            /* number of unique logos */
+      --duration: 30s;       /* animation speed (adjust as you like) */
+      --fade-w: 80px;        /* edge fade width like before */
+    }
+
+    /* Move exactly one full set (+ one gap between A and B) */
+    @keyframes infiniteLoop {
+      0%   { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(calc((var(--logo-w) + var(--logo-gap)) * var(--count) * -1), 0, 0); }
+    }
+
+    .brandsSection {
+      background: var(--off-white);
+      margin: 30px 0;
+    }
+
+    .brandsCarousel {
+      max-width: 90vw;
+      max-height: var(--logo-h);
+      margin: auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Edge fades */
+    .brandsCarousel::before,
+    .brandsCarousel::after {
+      content: "";
+      width: var(--fade-w);
+      height: 100%;
+      position: absolute;
+      z-index: 2;
+      pointer-events: none;
+      top: 0;
+    }
+    .brandsCarousel::before {
+      left: 0;
+      background: linear-gradient(to right, var(--off-white) 70%, rgba(255, 255, 255, 0));
+    }
+    .brandsCarousel::after {
+      right: 0;
+      background: linear-gradient(to left, var(--off-white) 70%, rgba(255, 255, 255, 0));
+    }
+
+    .carouselTrack {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: var(--logo-gap);
+      animation: infiniteLoop var(--duration) linear infinite;
+      animation-fill-mode: forwards;
+      will-change: transform;
+      transform: translate3d(0,0,0);
+    }
+
+    .brandLogo {
+      width: var(--logo-w);
+      height: var(--logo-h);
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    /* Style from previous version: grayscale to color on hover */
+    .brandLogo > img,
+    .brandLogo > svg {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      object-fit: contain;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+    .brandLogo:hover img,
+    .brandLogo:hover svg {
+      filter: grayscale(0%);
+    }
+
+    /* Pause on hover */
+    .brandsCarousel:hover .carouselTrack {
+      animation-play-state: paused;
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .carouselTrack { animation: none; }
+    }
+  </style>
+
+  <div class="container brandsCarousel" aria-label="Brand logos carousel">
+    <div class="carouselTrack">
+      <!-- 8 unique logos -->
+      <div class="brandLogo"><img src="assets/img/company-logos/1.png" alt="Logo 1" loading="lazy"></div>
+      <div class="brandLogo"><img src="assets/img/company-logos/2.png" alt="Logo 2" loading="lazy"></div>
+      <div class="brandLogo"><img src="assets/img/company-logos/3.png" alt="Logo 3" loading="lazy"></div>
+      <div class="brandLogo"><img src="assets/img/company-logos/4.png" alt="Logo 4" loading="lazy"></div>
+      <div class="brandLogo"><img src="assets/img/company-logos/5.png" alt="Logo 5" loading="lazy"></div>
+      <div class="brandLogo"><img src="assets/img/company-logos/6.png" alt="Logo 6" loading="lazy"></div>
+      <div class="brandLogo"><img src="assets/img/company-logos/7.png" alt="Logo 7" loading="lazy"></div>
+      <div class="brandLogo"><img src="assets/img/company-logos/8.png" alt="Logo 8" loading="lazy"></div>
+
+      <!-- 8 clones for seamless loop (aria-hidden to avoid SR duplicates) -->
+      <div class="brandLogo" aria-hidden="true"><img src="assets/img/company-logos/1.png" alt="" loading="lazy"></div>
+      <div class="brandLogo" aria-hidden="true"><img src="assets/img/company-logos/2.png" alt="" loading="lazy"></div>
+      <div class="brandLogo" aria-hidden="true"><img src="assets/img/company-logos/3.png" alt="" loading="lazy"></div>
+      <div class="brandLogo" aria-hidden="true"><img src="assets/img/company-logos/4.png" alt="" loading="lazy"></div>
+      <div class="brandLogo" aria-hidden="true"><img src="assets/img/company-logos/5.png" alt="" loading="lazy"></div>
+      <div class="brandLogo" aria-hidden="true"><img src="assets/img/company-logos/6.png" alt="" loading="lazy"></div>
+      <div class="brandLogo" aria-hidden="true"><img src="assets/img/company-logos/7.png" alt="" loading="lazy"></div>
+      <div class="brandLogo" aria-hidden="true"><img src="assets/img/company-logos/8.png" alt="" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+<!-- end logo carousel -->
 
 	<!-- features list section -->
+          
 	<div class="list-section pt-80 pb-80">
 		<div class="container">
 			<div class="row">
@@ -625,8 +561,11 @@
       }
     }
   </style>
-</head>
-<body>
+          
+   <div class="section-title text-center mt-100">	
+		<h3><span class="orange-text" style="align-self: center;">Features</span> Lists</h3>
+		<p>Discover the newest stationery arrivals, including pens, notebooks, and art supplies to inspire creativity and productivity.</p>
+	</div>
 
 <div class="featured-category-grid">
   <div class="featured-box" id="carouselBox1">
