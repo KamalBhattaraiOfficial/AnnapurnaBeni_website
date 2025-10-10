@@ -41,6 +41,10 @@
 	<link rel="stylesheet" href="assets/css/meanmenu.min.css">
 	<link rel="stylesheet" href="assets/css/main.css">
 	<link rel="stylesheet" href="assets/css/responsive.css">
+	
+	<!-- Swiper CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 
 	<!-- Consolidated Custom Styles -->
 	<style>
@@ -414,6 +418,27 @@
 </div>
 
 <!-- Latest News -->
+ <!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<style>
+	.single-latest-news {
+	margin: 10px;
+	background: #fff;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+	transition: transform 0.3s ease;
+	}
+	.single-latest-news:hover {
+		transform: translateY(-5px);
+	}
+	.swiper-button-next, .swiper-button-prev{
+		color: #F28123;
+	}
+
+</style>
+
+<!-- Latest News (Carousel) -->
 <div class="latest-news pt-150 pb-150">
 	<div class="container">
 		<div class="row">
@@ -425,58 +450,132 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-lg-4 col-md-6">
-				<div class="single-latest-news">
-					<a href="about.html"><div class="latest-news-bg news-bg-1"></div></a>
-					<div class="news-text-box">
-						<h3><a href="about.html">DOMS Gratitude Awards</a></h3>
-						<p class="blog-meta">
-							<span class="author"><i class="fas fa-user"></i> Admin</span>
-							<span class="date"><i class="fas fa-calendar"></i> 2 September, 2025</span>
-						</p>
-						<p class="excerpt">Celebrate the latest DOMS stationery collections and award-winning designs that bring style and functionality to your workspace. Explore pens, notebooks, and office essentials crafted for every creative mind.</p>
-						<a href="about.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+		<!-- Swiper -->
+		<div class="swiper myNewsSwiper">
+			<div class="swiper-wrapper">
+
+				<!-- News Item 1 -->
+				<div class="swiper-slide">
+					<div class="single-latest-news">
+						<a href="about.html"><div class="latest-news-bg news-bg-1"></div></a>
+						<div class="news-text-box">
+							<h3><a href="about.html">DOMS Gratitude Awards</a></h3>
+							<p class="blog-meta">
+								<span class="author"><i class="fas fa-user"></i> Admin</span>
+								<span class="date"><i class="fas fa-calendar"></i> 2 September, 2025</span>
+							</p>
+							<p class="excerpt">Celebrate the latest DOMS stationery collections and award-winning designs that bring style and functionality to your workspace.</p>
+							<a href="about.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-lg-4 col-md-6">
-				<div class="single-latest-news">
-					<a href="about.html"><div class="latest-news-bg news-bg-2"></div></a>
-					<div class="news-text-box">
-						<h3><a href="about.html">Showcasing Products</a></h3>
-						<p class="blog-meta">
-							<span class="author"><i class="fas fa-user"></i> Admin</span>
-							<span class="date"><i class="fas fa-calendar"></i> 2 September, 2025</span>
-						</p>
-						<p class="excerpt">Explore the latest additions to our product lineup, featuring innovative stationery solutions designed to enhance creativity and productivity.</p>
-						<a href="about.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+
+				<!-- News Item 2 -->
+				<div class="swiper-slide">
+					<div class="single-latest-news">
+						<a href="about.html"><div class="latest-news-bg news-bg-2"></div></a>
+						<div class="news-text-box">
+							<h3><a href="about.html">Showcasing Products</a></h3>
+							<p class="blog-meta">
+								<span class="author"><i class="fas fa-user"></i> Admin</span>
+								<span class="date"><i class="fas fa-calendar"></i> 2 September, 2025</span>
+							</p>
+							<p class="excerpt">Explore the latest additions to our product lineup, featuring innovative stationery solutions designed to enhance creativity and productivity.</p>
+							<a href="about.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
-				<div class="single-latest-news">
-					<a href="about.html"><div class="latest-news-bg news-bg-3"></div></a>
-					<div class="news-text-box">
-						<h3><a href="about.html">Distribution of Double A Products</a></h3>
-						<p class="blog-meta">
-							<span class="author"><i class="fas fa-user"></i> Admin</span>
-							<span class="date"><i class="fas fa-calendar"></i> 2 September, 2025</span>
-						</p>
-						<p class="excerpt">Our latest shipment of Double A notebooks and papers has reached stores! Experience premium quality paper products perfect for school, office, and creative projects.</p>
-						<a href="about.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+
+				<!-- News Item 3 -->
+				<div class="swiper-slide">
+					<div class="single-latest-news">
+						<a href="about.html"><div class="latest-news-bg news-bg-3"></div></a>
+						<div class="news-text-box">
+							<h3><a href="about.html">Distribution of Double A Products</a></h3>
+							<p class="blog-meta">
+								<span class="author"><i class="fas fa-user"></i> Admin</span>
+								<span class="date"><i class="fas fa-calendar"></i> 2 September, 2025</span>
+							</p>
+							<p class="excerpt">Our latest shipment of Double A notebooks and papers has reached stores! Experience premium quality paper products perfect for school, office, and creative projects.</p>
+							<a href="about.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+						</div>
 					</div>
 				</div>
+
+				<!-- Add More Items -->
+				<div class="swiper-slide">
+					<div class="single-latest-news">
+						<a href="about.html"><div class="latest-news-bg news-bg-4"></div></a>
+						<div class="news-text-box">
+							<h3><a href="about.html">Frenz Pens New Collection</a></h3>
+							<p class="blog-meta">
+								<span class="author"><i class="fas fa-user"></i> Admin</span>
+								<span class="date"><i class="fas fa-calendar"></i> 10 September, 2025</span>
+							</p>
+							<p class="excerpt">Introducing the vibrant Frenz Pen series – designed for comfort, smooth writing, and lasting impressions.</p>
+							<a href="about.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="swiper-slide">
+					<div class="single-latest-news">
+						<a href="about.html"><div class="latest-news-bg news-bg-5"></div></a>
+						<div class="news-text-box">
+							<h3><a href="about.html">Classmate Creative Diaries</a></h3>
+							<p class="blog-meta">
+								<span class="author"><i class="fas fa-user"></i> Admin</span>
+								<span class="date"><i class="fas fa-calendar"></i> 15 September, 2025</span>
+							</p>
+							<p class="excerpt">Discover artistic and inspiring Classmate diaries crafted for students and professionals alike.</p>
+							<a href="about.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+
 			</div>
+
+			<!-- Navigation buttons -->
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+
+			<!-- Pagination dots -->
+			<div class="swiper-pagination"></div>
 		</div>
-		
-		<div class="row">
+
+		<div class="row mt-5">
 			<div class="col-lg-12 text-center">
 				<a href="about.html" class="boxed-btn">More News</a>
 			</div>
 		</div>
 	</div>
 </div>
+<script>
+	const swiper = new Swiper(".myNewsSwiper", {
+		slidesPerView: 3,
+		spaceBetween: 30,
+		loop: true,
+		centeredSlides: false,
+		autoplay: {
+			delay: 3000,
+			disableOnInteraction: false,
+		},
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev",
+		},
+		pagination: {
+			el: ".swiper-pagination",
+			clickable: true,
+		},
+		breakpoints: {
+			0: { slidesPerView: 1 },
+			768: { slidesPerView: 2 },
+			1024: { slidesPerView: 3 },
+		},
+	});
+</script>
+
 
 <!-- About Section -->
 <div class="abt-section mb-50">
@@ -501,7 +600,7 @@
 </div>
 
 <!-- Map Section -->
-<div class="container mb-100">
+<div class="container mt-100 mb-100">
 	<div class="row">
 		<div class="col-lg-8 offset-lg-2 text-center">
 			<div class="section-title">	
