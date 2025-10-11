@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Shuva Annapurna Pvt. Ltd. - Wholesale Office Stationery in Beni, Myagdi" />
+
+  <title>Shuva Annapurna Pvt. Ltd.</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="assets/img/favicon1.png" />
+
+  <!-- Preconnects for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Google Fonts (consolidated) -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="assets/css/all.min.css" />
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/owl.carousel.css" />
+  <link rel="stylesheet" href="assets/css/magnific-popup.css" />
+  <link rel="stylesheet" href="assets/css/animate.css" />
+  <link rel="stylesheet" href="assets/css/meanmenu.min.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+
+  <!-- Page-specific, performance-tuned styles -->
+  <style>
+    /* Header logo fine-tune */
+    .site-logo img { height: 40px; width: auto; margin-right: 10px; }
+
+    /* Video Row */
+    .video-row { display: flex; width: 100%; margin: 0; padding: 0; flex-wrap: wrap; }
+    .video-container {
+      flex: 0 0 50%;
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      background: #000;
+      aspect-ratio: 16 / 9;
+    }
+    .video-container > video,
+    .video-container > .video-overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .video-container > video { object-fit: cover; display: block; }
+    .video-overlay { background: rgba(0,0,0,0.5); pointer-events: none; }
+
+    @supports not (aspect-ratio: 1) {
+      .video-container { padding-top: 56.25%; }
+      .video-container > video,
+      .video-container > .video-overlay { position: absolute; top: 0; left: 0; }
+    }
+
+    /* Responsive hero text adjustments */
+    @media (max-width: 768px) {
+      .video-container { flex: 0 0 100%; }
+      .hero-text-tablecell { padding-top: 20px !important; }
+      .hero-text h1 { font-size: 24px !important; }
+      .hero-text p.subtitle { font-size: 16px !important; }
+      .hero-btns a { font-size: 14px !important; padding: 8px 12px !important; }
+    }
+
+    /* Brands (infinite loop) */
+    :root {
+      --off-white: #f9f9f9;
+      --logo-w: 120px;
+      --logo-h: 60px;
+      --logo-gap: 40px;
+      --count: 8;
+      --duration: 30s;
+      --fade-w: 80px;
+    }
+    @keyframes infiniteLoop {
+      0%   { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(calc((var(--logo-w) + var(--logo-gap)) * var(--count) * -1), 0, 0); }
+    }
+    .brandsSection { background: var(--off-white); margin: 30px 0; }
+    .brandsCarousel { max-width: 90vw; max-height: var(--logo-h); margin: auto; overflow: hidden; position: relative; }
+    .brandsCarousel::before,
+    .brandsCarousel::after {
+      content: ""; width: var(--fade-w); height: 100%; position: absolute; z-index: 2; pointer-events: none; top: 0;
+    }
+    .brandsCarousel::before { left: 0; background: linear-gradient(to right, var(--off-white) 70%, rgba(255,255,255,0)); }
+    .brandsCarousel::after { right: 0; background: linear-gradient(to left, var(--off-white) 70%, rgba(255,255,255,0)); }
+    .carouselTrack { display: flex; flex-wrap: nowrap; align-items: center; gap: var(--logo-gap); animation: infiniteLoop var(--duration) linear infinite; will-change: transform; transform: translate3d(0,0,0); }
+    .brandLogo { width: var(--logo-w); height: var(--logo-h); display: grid; place-items: center; flex: 0 0 auto; }
+    .brandLogo > img, .brandLogo > svg { max-width: 100%; max-height: 100%; display: block; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease; }
+    .brandLogo:hover img, .brandLogo:hover svg { filter: grayscale(0%); }
+    .brandsCarousel:hover .carouselTrack { animation-play-state: paused; }
+    @media (prefers-reduced-motion: reduce) { .carouselTrack { animation: none; } }
+
+    /* Featured grid tweaks */
+    h4, h2, a { font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+    .featured-category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 40px auto; width: 92vw; }
+    @media (max-width: 992px) { .featured-category-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .featured-category-grid { grid-template-columns: 1fr; } }
+    .featured-box { height: 400px; position: relative; }
+    .carousel-inner, .carousel-item { height: 100%; }
+    .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
+    .carousel-caption {
+      position: absolute; bottom: 10px; left: 10px; right: 10px;
+      background: rgba(0,0,0,0.55); padding: 8px 12px; border-radius: 8px; text-align: left;
+    }
+    .carousel-caption h4 { font-size: 14px; margin: 0; text-decoration: underline; color: #F28123; }
+    .carousel-caption h2 { font-size: 16px; margin: 5px 0; color: #fff; }
+    .carousel-caption a {
+      display: inline-block; margin-top: 5px; padding: 5px 12px; background: #fff; color: #1e2a4a; border-radius: 20px; text-decoration: none; font-size: 12px;
+    }
+    @media (max-width: 576px) {
+      .featured-box { height: 250px; }
+      .carousel-caption h2 { font-size: 14px; }
+      .carousel-caption h4 { font-size: 12px; }
+      .carousel-caption a { font-size: 11px; padding: 4px 8px; }
+    }
+
+    /* Centered static logo strip (kept one carousel only to avoid duplication) */
+    .logo-carousel-section { display: flex; justify-content: center; align-items: center; min-height: 300px; background-color: #f9f9f9; }
+    .logo-carousel-inner { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; align-items: center; }
+    .single-logo-item img { max-height: 80px; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease; }
+    .single-logo-item img:hover { filter: grayscale(0%); }
+
+    /* Map styling */
+    .map-wrapper { display: flex; justify-content: center; align-items: center; min-height: 500px; padding: 40px 0; background-color: #f9f9f9; }
+    .map-wrapper iframe {
+      width: 90%; max-width: 1200px; height: 450px; border: 0; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="top-header-area" id="sticker" style="height: 90px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-sm-12 text-center">
+          <div class="main-menu-wrap">
+            <!-- logo -->
+            <div class="site-logo" style="transform: scale(1.2);">
+              <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="assets/img/logo.png" alt="Shuva Annapurna Pvt. Ltd. logo" />
+                <h3 style="color: #ffffff; margin: 0; line-height: 1.2; text-align: start; font-size: 14px; font-weight: bold;">
+                  Shuva Annapurna <br /><span style="color: #F28123; font-size: 11px;">Pvt. Ltd.</span>
+                </h3>
+              </a>
+            </div>
+            <!-- menu start -->
+            <nav class="main-menu" aria-label="Main navigation">
+              <ul>
+                <li class="current-list-item"><a href="index.html">Home</a></li>
+                <li><a href="fastLoad.html">Fast home</a></li>
+                <li class="menu-item-has-children">
+                  <a href="products.html">Products & Services</a>
+                  <ul class="sub-menu">
+                    <li><a href="products.html?filter=doms">DOMS</a></li>
+                    <li><a href="products.html?filter=renko">Renko</a></li>
+                    <li><a href="products.html?filter=doublea">DoubleA</a></li>
+                    <li><a href="products.html?filter=himalcopy">Himal Copy</a></li>
+                    <li><a href="products.html?filter=nepalcopy">Nepal Copy</a></li>
+                    <li><a href="products.html?filter=frenz">Frenz</a></li>
+                    <li><a href="products.html?filter=mikasa">Mikasa</a></li>
+                    <li><a href="products.html?filter=surya">Surya Ledger</a></li>
+                    <li><a href="products.html?filter=others">Others</a></li>
+                  </ul>
+                </li>
+
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                  <div class="header-icons">
+                    <a class="mobile-hide search-bar-icon" href="#" aria-label="Open search"><i class="fas fa-search" aria-hidden="true"></i></a>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+            <a class="mobile-show search-bar-icon" href="#" aria-label="Open search"><i class="fas fa-search" aria-hidden="true"></i></a>
+            <div class="mobile-menu"></div>
+            <!-- menu end -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search area -->
+  <div class="search-area" aria-hidden="true">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <button class="close-btn" aria-label="Close search"><i class="fas fa-window-close" aria-hidden="true"></i></button>
+          <div class="search-bar">
+            <div class="search-bar-tablecell">
+              <h3>Search For:</h3>
+              <label for="site-search" class="sr-only">Keywords</label>
+              <input id="site-search" type="text" placeholder="Keywords" />
+              <button type="submit">Search <i class="fas fa-search" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Minimal Image + Video Hero -->
+<section id="hero-media" class="hero-media" data-autoplay="7000" aria-label="Hero media slider">
+  <div class="hm__slides">
+
+    <!-- Slide 1: Two-up videos (DOMS) -->
+    <figure class="hm__slide is-active hm__slide--videos">
+      <div class="hm__grid-2">
+        <div class="hm__media">
+          <video
+            class="hm__video"
+            muted playsinline loop preload="none"
+            poster="/assets/img/products/Doms/poster-1.jpg"
+            data-src-desktop="/assets/img/products/Doms/product-video- (1).mp4"
+            data-src-mobile="/assets/img/products/Doms/mobile/product-video-1-480p.mp4"></video>
+        </div>
+        <div class="hm__media">
+          <video
+            class="hm__video"
+            muted playsinline loop preload="none"
+            poster="/assets/img/products/Doms/poster-2.jpg"
+            data-src-desktop="/assets/img/products/Doms/product-video- (2).mp4"
+            data-src-mobile="/assets/img/products/Doms/mobile/product-video-2-480p.mp4"></video>
+        </div>
+      </div>
+    </figure>
+
+    <!-- Slide 2: Image -->
+    <figure class="hm__slide hm__slide--image">
+      <picture>
+        <source type="image/webp" srcset="/assets/img/hero/slide-1-768.webp 768w, /assets/img/hero/slide-1-1440.webp 1440w">
+        <img src="/assets/img/hero/slide-1.jpg" class="hm__image" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+
+    <!-- Slide 3: Two-up videos (Nepal Copy) -->
+    <figure class="hm__slide hm__slide--videos">
+      <div class="hm__grid-2">
+        <div class="hm__media">
+          <video
+            class="hm__video"
+            muted playsinline loop preload="none"
+            poster="/assets/img/products/Nepal-Copy/poster-1.jpg"
+            data-src-desktop="/assets/img/products/Nepal-Copy/product-video- (1).mp4"
+            data-src-mobile="/assets/img/products/Nepal-Copy/mobile/product-video-1-480p.mp4"></video>
+        </div>
+        <div class="hm__media">
+          <video
+            class="hm__video"
+            muted playsinline loop preload="none"
+            poster="/assets/img/products/Nepal-Copy/poster-2.jpg"
+            data-src-desktop="/assets/img/products/Nepal-Copy/product-video- (2).mp4"
+            data-src-mobile="/assets/img/products/Nepal-Copy/mobile/product-video-2-480p.mp4"></video>
+        </div>
+      </div>
+    </figure>
+
+    <!-- Slide 4: Image -->
+    <figure class="hm__slide hm__slide--image">
+      <picture>
+        <source type="image/webp" srcset="/assets/img/hero/slide-2-768.webp 768w, /assets/img/hero/slide-2-1440.webp 1440w">
+        <img src="/assets/img/hero/slide-2.jpg" class="hm__image" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+
+  </div>
+</section>
+
+<style>
+  .hero-media {
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    min-height: clamp(420px, 60vh, 720px);
+  }
+  .hm__slides { position: relative; height: 100%; }
+
+  .hm__slide {
+    position: absolute; inset: 0;
+    opacity: 0; visibility: hidden;
+    transition: opacity 420ms ease;
+    will-change: opacity;
+    contain: layout paint size;
+  }
+  .hm__slide.is-active { opacity: 1; visibility: visible; }
+
+  /* Two-up video layout */
+  .hm__grid-2 {
+    position: absolute; inset: 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  }
+  .hm__media { position: relative; background: #000; height: 100%; aspect-ratio: 16/9; }
+  .hm__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+
+  /* Image slide */
+  .hm__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Fallback for browsers without aspect-ratio */
+  @supports not (aspect-ratio: 1) {
+    .hm__media { padding-top: 56.25%; height: auto; }
+    .hm__video, .hm__image { position: absolute; inset: 0; }
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .hm__grid-2 { grid-template-columns: 1fr; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hm__slide { transition: none; }
+  }
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById('hero-media');
+  if (!root) return;
+
+  const slides = Array.from(root.querySelectorAll('.hm__slide'));
+  let i = 0;
+  let timer = null;
+
+  const delay = parseInt(root.dataset.autoplay, 10) || 6000;
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const saveData = !!(navigator.connection && navigator.connection.saveData);
+  const isMobile = () => matchMedia('(max-width: 768px)').matches;
+
+  const pickSrc = (v) => {
+    if (saveData && v.dataset.srcTiny) return v.dataset.srcTiny;
+    if (isMobile() && v.dataset.srcMobile) return v.dataset.srcMobile;
+    return v.dataset.srcDesktop || v.dataset.srcMobile || '';
+  };
+
+  const pauseVideos = (slide) => slide.querySelectorAll('video').forEach(v => v.pause());
+
+  const loadVideos = (slide) => {
+    slide.querySelectorAll('video').forEach(v => {
+      if (v.dataset.loaded === '1' || reduceMotion || saveData) return;
+      const src = pickSrc(v);
+      if (!src) return;
+      v.src = src;
+      v.preload = 'metadata';
+      v.dataset.loaded = '1';
+      v.addEventListener('canplay', () => { v.muted = true; v.play().catch(() => {}); }, { once: true });
+      v.load();
+    });
+  };
+
+  const show = (idx) => {
+    if (idx === i) return;
+    pauseVideos(slides[i]);
+    slides[i].classList.remove('is-active');
+    i = idx;
+    slides[i].classList.add('is-active');
+    loadVideos(slides[i]);
+  };
+
+  const next = () => show((i + 1) % slides.length);
+  const start = () => { if (!reduceMotion) { stop(); timer = setInterval(next, delay); } };
+  const stop = () => { if (timer) clearInterval(timer); timer = null; };
+
+  // Pause/resume with viewport
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { loadVideos(slides[i]); start(); }
+      else { stop(); slides.forEach(pauseVideos); }
+    });
+  }, { threshold: 0.2 }) : null;
+
+  if (io) io.observe(root); else { loadVideos(slides[i]); start(); }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { stop(); slides.forEach(pauseVideos); }
+    else { loadVideos(slides[i]); start(); }
+  });
+
+  // Gentle init
+  if ('requestIdleCallback' in window) requestIdleCallback(() => loadVideos(slides[i]), { timeout: 1000 });
+  else setTimeout(() => loadVideos(slides[i]), 250);
+})();
+</script>
+
+  <!-- Brands infinite carousel -->
+  <section class="brandsSection d-flex flex-column justify-content-center align-items-center">
+    <div class="container brandsCarousel" aria-label="Brand logos carousel">
+      <div class="carouselTrack">
+        <!-- 8 unique logos -->
+        <div class="brandLogo"><img src="assets/img/company-logos/1.png" alt="Brand logo 1" loading="lazy" decoding="async" /></div>
+        <div class="brandLogo"><img src="assets/img/company-logos/2.png" alt="Brand logo 2" loading="lazy" decoding="async" /></div>
+        <div class="brandLogo"><img src="assets/img/company-logos/3.png" alt="Brand logo 3" loading="lazy" decoding="async" /></div>
+        <div class="brandLogo"><img src="assets/img/company-logos/4.png" alt="Brand logo 4" loading="lazy" decoding="async" /></div>
+        <div class="brandLogo"><img src="assets/img/company-logos/5.png" alt="Brand logo 5" loading="lazy" decoding="async" /></div>
+        <div class="brandLogo"><img src="assets/img/company-logos/6.png" alt="Brand logo 6" loading="lazy" decoding="async" /></div>
+        <div class="brandLogo"><img src="assets/img/company-logos/7.png" alt="Brand logo 7" loading="lazy" decoding="async" /></div>
+        <div class="brandLogo"><img src="assets/img/company-logos/8.png" alt="Brand logo 8" loading="lazy" decoding="async" /></div>
+        <!-- clones (hidden from SR) -->
+        <div class="brandLogo" aria-hidden="true"><img src="assets/img/company-logos/1.png" alt="" loading="lazy" decoding="async" /></div>
+        <div class="brandLogo" aria-hidden="true"><img src="assets/img/company-logos/2.png" alt="" loading="lazy" decoding="async" /></div>
+        <div class="brandLogo" aria-hidden="true"><img src="assets/img/company-logos/3.png" alt="" loading="lazy" decoding="async" /></div>
+        <div class="brandLogo" aria-hidden="true"><img src="assets/img/company-logos/4.png" alt="" loading="lazy" decoding="async" /></div>
+        <div class="brandLogo" aria-hidden="true"><img src="assets/img/company-logos/5.png" alt="" loading="lazy" decoding="async" /></div>
+        <div class="brandLogo" aria-hidden="true"><img src="assets/img/company-logos/6.png" alt="" loading="lazy" decoding="async" /></div>
+        <div class="brandLogo" aria-hidden="true"><img src="assets/img/company-logos/7.png" alt="" loading="lazy" decoding="async" /></div>
+        <div class="brandLogo" aria-hidden="true"><img src="assets/img/company-logos/8.png" alt="" loading="lazy" decoding="async" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features list -->
+  <div class="list-section pt-80 pb-80">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <div class="list-box d-flex align-items-center">
+            <div class="list-icon">
+              <i class="fas fa-box" aria-hidden="true"></i>
+            </div>
+            <div class="content">
+              <h3>Wide Range</h3>
+              <p>All major stationery brands in one place</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <div class="list-box d-flex align-items-center">
+            <div class="list-icon">
+              <i class="fas fa-handshake" aria-hidden="true"></i>
+            </div>
+            <div class="content">
+              <h3>Wholesale Pricing</h3>
+              <p>Bulk order discounts available</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="list-box d-flex justify-content-start align-items-center">
+            <div class="list-icon">
+              <i class="fas fa-truck" aria-hidden="true"></i>
+            </div>
+            <div class="content">
+              <h3>Local Delivery</h3>
+              <p>Fast supply across Beni & Myagdi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured Categories -->
+  <div class="section-title text-center mt-100">
+    <h3><span class="orange-text" style="align-self: center;">Features</span> Lists</h3>
+    <p>Discover the newest stationery arrivals, including pens, notebooks, and art supplies to inspire creativity and productivity.</p>
+  </div>
+
+  <div class="featured-category-grid">
+    <div class="featured-box" id="carouselBox1">
+      <div class="carousel slide carousel-fade h-100" id="carousel1" data-ride="carousel" data-interval="2000">
+        <ol class="carousel-indicators"></ol>
+        <div class="carousel-inner h-100"></div>
+      </div>
+    </div>
+
+    <div class="featured-box" id="carouselBox2">
+      <div class="carousel slide carousel-fade h-100" id="carousel2" data-ride="carousel" data-interval="2000">
+        <ol class="carousel-indicators"></ol>
+        <div class="carousel-inner h-100"></div>
+      </div>
+    </div>
+
+    <div class="featured-box" id="carouselBox3">
+      <div class="carousel slide carousel-fade h-100" id="carousel3" data-ride="carousel" data-interval="2000">
+        <ol class="carousel-indicators"></ol>
+        <div class="carousel-inner h-100"></div>
+      </div>
+    </div>
+
+    <div class="featured-box" id="carouselBox4">
+      <div class="carousel slide carousel-fade h-100" id="carousel4" data-ride="carousel" data-interval="2000">
+        <ol class="carousel-indicators"></ol>
+        <div class="carousel-inner h-100"></div>
+      </div>
+    </div>
+
+    <div class="featured-box" id="carouselBox5">
+      <div class="carousel slide carousel-fade h-100" id="carousel5" data-ride="carousel" data-interval="2000">
+        <ol class="carousel-indicators"></ol>
+        <div class="carousel-inner h-100"></div>
+      </div>
+    </div>
+
+    <div class="featured-box" id="carouselBox6">
+      <div class="carousel slide carousel-fade h-100" id="carousel6" data-ride="carousel" data-interval="2000">
+        <ol class="carousel-indicators"></ol>
+        <div class="carousel-inner h-100"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Merge himalcopy + nepalcopy into one box; lazy images + a11y
+    document.addEventListener("DOMContentLoaded", () => {
+      const mapBrandToBox = {
+        doms: "carouselBox1",
+        renko: "carouselBox2",
+        doublea: "carouselBox3",
+        himalcopy: "carouselBox4",
+        nepalcopy: "carouselBox4",
+        others: "carouselBox5",
+        frenz: "carouselBox6"
+      };
+
+      fetch("products.json")
+        .then(res => res.json())
+        .then(data => {
+          const buckets = {};
+          Object.keys(data).forEach(brand => {
+            const boxId = mapBrandToBox[brand];
+            if (!boxId) return;
+            buckets[boxId] = (buckets[boxId] || []).concat(data[brand]);
+          });
+
+          Object.entries(buckets).forEach(([boxId, items]) => {
+            const box = document.getElementById(boxId);
+            if (!box) return;
+            const carousel = box.querySelector(".carousel");
+            const indicators = carousel.querySelector(".carousel-indicators");
+            const inner = carousel.querySelector(".carousel-inner");
+
+            indicators.innerHTML = items.map((_, i) =>
+              `<li data-target="#${carousel.id}" data-slide-to="${i}" class="${i===0?'active':''}" aria-label="Slide ${i+1}"></li>`
+            ).join('');
+
+            inner.innerHTML = items.map((item, i) => `
+              <div class="carousel-item ${i===0 ? 'active' : ''}">
+                <img src="${item.image}" class="d-block w-100" alt="${item.title}" loading="lazy" decoding="async" />
+                <div class="carousel-caption">
+                  <h4>${item.subtitle || ''}</h4>
+                  <h2>${item.title || ''}</h2>
+                  <a href="${item.link || '#'}" target="_blank" rel="noopener noreferrer">Browse Products</a>
+                </div>
+              </div>
+            `).join('');
+          });
+        })
+        .catch(err => console.error("JSON load error:", err));
+    });
+  </script>
+
+  <!-- Latest news -->
+  <div class="latest-news pt-150 pb-150">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2 text-center">
+          <div class="section-title">
+            <h3><span class="orange-text">Latest</span> Updates</h3>
+            <p>Discover the newest stationery arrivals, including pens, notebooks, and art supplies to inspire creativity and productivity.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="single-latest-news">
+            <a href="about.html"><div class="latest-news-bg news-bg-1" role="img" aria-label="DOMS Gratitude Awards"></div></a>
+            <div class="news-text-box">
+              <h3><a href="about.html">DOMS Gratitude Awards</a></h3>
+              <p class="blog-meta">
+                <span class="author"><i class="fas fa-user" aria-hidden="true"></i> Admin</span>
+                <span class="date"><i class="fas fa-calendar" aria-hidden="true"></i> 2 September, 2025</span>
+              </p>
+              <p class="excerpt">Celebrate the latest DOMS stationery collections and award-winning designs that bring style and functionality to your workspace. Explore pens, notebooks, and office essentials crafted for every creative mind.</p>
+              <a href="about.html" class="read-more-btn">read more <i class="fas fa-angle-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="single-latest-news">
+            <a href="about.html"><div class="latest-news-bg news-bg-2" role="img" aria-label="Showcasing Products"></div></a>
+            <div class="news-text-box">
+              <h3><a href="about.html">Showcasing Products</a></h3>
+              <p class="blog-meta">
+                <span class="author"><i class="fas fa-user" aria-hidden="true"></i> Admin</span>
+                <span class="date"><i class="fas fa-calendar" aria-hidden="true"></i> 2 September, 2025</span>
+              </p>
+              <p class="excerpt">Explore the latest additions to our product lineup, featuring innovative stationery solutions designed to enhance creativity and productivity.</p>
+              <a href="about.html" class="read-more-btn">read more <i class="fas fa-angle-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+          <div class="single-latest-news">
+            <a href="about.html"><div class="latest-news-bg news-bg-3" role="img" aria-label="Distribution of Double A Products"></div></a>
+            <div class="news-text-box">
+              <h3><a href="about.html">Distribution of Double A Products</a></h3>
+              <p class="blog-meta">
+                <span class="author"><i class="fas fa-user" aria-hidden="true"></i> Admin</span>
+                <span class="date"><i class="fas fa-calendar" aria-hidden="true"></i> 2 September, 2025</span>
+              </p>
+              <p class="excerpt">Our latest shipment of Double A notebooks and papers has reached stores! Experience premium quality paper products perfect for school, office, and creative projects.</p>
+              <a href="about.html" class="read-more-btn">read more <i class="fas fa-angle-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <a href="about.html" class="boxed-btn">More News</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About / Advertisement -->
+  <div class="abt-section mb-50">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <div class="abt-bg">
+            <a href="https://www.facebook.com/watch/?v=1582846778503000" class="video-play-btn popup-youtube" rel="noopener noreferrer" target="_blank" aria-label="Play video">
+              <i class="fas fa-play" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="abt-text">
+            <p class="top-sub">Since Year 2077</p>
+            <h2 style="color: #051922;">We are <span class="orange-text">Shuva Annapurna Pvt. Ltd.</span></h2>
+            <p>We are a service-oriented business dedicated to fulfilling all your stationery needs with care and reliability. As a trusted trading concern, we provide quality products at fair prices to support students, professionals, and organizations.</p>
+            <p>Through our leadership programs, we inspire learning and growth beyond stationery. Proudly located in Beni, Myagdi, we serve our community with commitment and trust.</p>
+            <a href="about.html" class="boxed-btn mt-4">know more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Static logo strip (kept) -->
+  <div class="logo-carousel-section mb-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="logo-carousel-inner">
+            <div class="single-logo-item"><img src="assets/img/company-logos/1.png" alt="Partner logo 1" loading="lazy" decoding="async" /></div>
+            <div class="single-logo-item"><img src="assets/img/company-logos/2.png" alt="Partner logo 2" loading="lazy" decoding="async" /></div>
+            <div class="single-logo-item"><img src="assets/img/company-logos/3.png" alt="Partner logo 3" loading="lazy" decoding="async" /></div>
+            <div class="single-logo-item"><img src="assets/img/company-logos/4.png" alt="Partner logo 4" loading="lazy" decoding="async" /></div>
+            <div class="single-logo-item"><img src="assets/img/company-logos/5.png" alt="Partner logo 5" loading="lazy" decoding="async" /></div>
+            <div class="single-logo-item"><img src="assets/img/company-logos/6.png" alt="Partner logo 6" loading="lazy" decoding="async" /></div>
+            <div class="single-logo-item"><img src="assets/img/company-logos/7.png" alt="Partner logo 7" loading="lazy" decoding="async" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map -->
+  <div class="container mb-100">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-title">
+          <h3><span class="orange-text">Our</span> Location</h3>
+        </div>
+      </div>
+      <div style="margin-top: -5%;" class="map-wrapper col-lg-12">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d219.46338850499427!2d83.56743529267621!3d28.34632403034016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1756699749676!5m2!1sen!2snp"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Shuva Annapurna Pvt. Ltd. location on Google Maps">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+          <div class="footer-box about-widget">
+            <h2 class="widget-title">About us</h2>
+            <p>Shuva Annapurna Pvt. Ltd. is a trusted stationery provider in Beni, Myagdi, offering high-quality pens, notebooks, papers, and other office essentials to inspire creativity and productivity.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+          <div class="footer-box get-in-touch">
+            <h2 class="widget-title">Get in Touch</h2>
+            <ul>
+              <li>Ganesh Tol, Beni, Myagdi</li>
+              <li><a href="mailto:Shuvaannapurnabeni@gmail.com">Shuvaannapurnabeni@gmail.com</a></li>
+              <li><a href="tel:+9779847741888">+977 9847741888</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+          <div class="footer-box pages">
+            <h2 class="widget-title">Pages</h2>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="news.html">News</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+          <div class="footer-box subscribe">
+            <h2 class="widget-title">Subscribe</h2>
+            <p>Subscribe to our mailing list to get the latest updates.</p>
+            <form action="#" class="d-flex flex-column flex-sm-row gap-2">
+              <label for="subscribe-email" class="sr-only">Email</label>
+              <input id="subscribe-email" type="email" placeholder="Email" class="form-control w-100" required />
+              <button type="submit" class="btn btn-primary" aria-label="Subscribe"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- copyright -->
+  <div class="copyright py-3">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-12 text-center text-lg-start mb-2 mb-lg-0">
+          <p>Copyrights &copy; 2025 - <a href="about.html">Shuva Annapurna Pvt. Ltd.</a>, All Rights Reserved.</p>
+        </div>
+        <div class="col-lg-6 col-md-12 text-center text-lg-end">
+          <div class="social-icons">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item"><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+              <li class="list-inline-item"><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+              <li class="list-inline-item"><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Products page logic (runs only on products.html when #productList exists) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById("productList");
+      if (!container) return;
+
+      const filterButtons = document.querySelectorAll(".filter-list li");
+      const paginationContainer = document.getElementById("pagination");
+
+      let products = [];
+      let currentPage = 1;
+      const itemsPerPage = 27;
+      let currentFilter = "*";
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlFilter = urlParams.get("filter");
+      if (urlFilter) currentFilter = "." + urlFilter;
+
+      fetch("products.json")
+        .then(res => res.json())
+        .then(data => {
+          products = [];
+          for (const brand in data) {
+            data[brand].forEach(item => {
+              products.push({
+                brand: brand,
+                name: item.title,
+                image: item.image,
+                code: item.code || ""
+              });
+            });
+          }
+
+          if (urlFilter) {
+            filterButtons.forEach(btn => {
+              if (btn.getAttribute("data-filter") === "." + urlFilter) btn.classList.add("active");
+              else btn.classList.remove("active");
+            });
+          }
+
+          renderProducts();
+          renderPagination();
+        })
+        .catch(err => console.error("Error loading products:", err));
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          currentFilter = btn.getAttribute("data-filter");
+          filterButtons.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          currentPage = 1;
+          renderProducts();
+          renderPagination();
+        });
+      });
+
+      function renderProducts() {
+        container.innerHTML = "";
+        let filtered = products;
+
+        if (currentFilter !== "*") {
+          const brandClass = currentFilter.replace(".", "");
+          filtered = products.filter(p => p.brand.toLowerCase() === brandClass);
+        }
+
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        const paginated = filtered.slice(start, end);
+
+        paginated.forEach(product => {
+          const col = document.createElement("div");
+          col.className = "col-lg-4 col-md-6 mb-4 " + product.brand.toLowerCase();
+          col.innerHTML = `
+            <div class="single-product-item">
+              <img src="${product.image}" alt="${product.name}" loading="lazy" decoding="async" />
+              <h3>${product.name}</h3>
+              <p class="product-code">${product.code}</p>
+            </div>
+          `;
+          container.appendChild(col);
+        });
+      }
+
+      function renderPagination() {
+        paginationContainer.innerHTML = "";
+        let filtered = products;
+
+        if (currentFilter !== "*") {
+          const brandClass = currentFilter.replace(".", "");
+          filtered = products.filter(p => p.brand.toLowerCase() === brandClass);
+        }
+
+        const totalPages = Math.ceil(filtered.length / itemsPerPage);
+        if (totalPages <= 1) return;
+
+        for (let i = 1; i <= totalPages; i++) {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.textContent = i;
+          a.href = "#";
+          if (i === currentPage) a.classList.add("active");
+
+          a.addEventListener("click", e => {
+            e.preventDefault();
+            currentPage = i;
+            renderProducts();
+            renderPagination();
+          });
+
+          li.appendChild(a);
+          paginationContainer.appendChild(li);
+        }
+      }
+    });
+  </script>
+
+  <!-- Consolidated JS (deferred, ordered) -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2LcD9gqGAJn5c5R0iJpG1rj7lGfE6jIWjCkF5d0v8Q" crossorigin="anonymous" defer></script>
+
+  <script src="assets/js/jquery.countdown.js" defer></script>
+  <script src="assets/js/jquery.isotope-3.0.6.min.js" defer></script>
+  <script src="assets/js/owl.carousel.min.js" defer></script>
+  <script src="assets/js/jquery.magnific-popup.min.js" defer></script>
+  <script src="assets/js/jquery.meanmenu.min.js" defer></script>
+  <script src="assets/js/waypoints.js" defer></script>
+  <script src="assets/js/sticker.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
