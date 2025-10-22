@@ -1067,6 +1067,73 @@ if (document.getElementById("productList")) {
 	}
 }
 </script>
+<!-- Popup Alert (Bootstrap-safe) -->
+<style>
+  /* Overlay */
+  #alertOverlay{
+    position: fixed; inset: 0;
+    display: none; place-items: center;
+    background: rgba(0,0,0,.55);
+    opacity: 0; transition: opacity .2s ease;
+    z-index: 99999;
+  }
+  #alertOverlay.show{ display: grid; opacity: 1; }
 
+  /* Force Bootstrap .modal to be visible inside our overlay */
+  #alertOverlay .modal{
+    display: block !important;    /* override Bootstrap */
+    position: relative;           /* override Bootstrap fixed */
+    width: min(92vw, 60vw);
+	height: fit-content;
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px 16px 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  }
+
+  #alertOverlay h2{margin:0 0 8px; font-size:18px; display:flex; align-items:center; gap:8px}
+  #alertOverlay p{margin:0 0 16px; line-height:1.4}
+  #alertOverlay .btn-close{
+    position:absolute; top:8px; right:8px; border:0; background:transparent; font-size:18px; cursor:pointer; line-height:1
+  }
+  #alertOverlay .btn-upgrade{
+    border:0; padding:10px 14px; border-radius:8px; background:#F28123; color:#fff; font-weight:600; cursor:pointer
+  }
+  #alertOverlay .btn-upgrade:hover{ filter:brightness(.95) }
+</style>
+
+<div class="overlay" id="alertOverlay" role="dialog" aria-modal="true" aria-labelledby="alertTitle" aria-hidden="true">
+  <div class="modal">
+    <button class="btn-close" id="closeBtn" aria-label="Close">✕</button>
+    <h2 id="alertTitle"><span aria-hidden="true">⚠️</span> Server Alert</h2>
+    <p>Attention user: your server capacity has exceeded <strong>512 MB</strong>. Please upgrade your server to a higher plan to continue smooth operation.</p>
+    <button class="btn-upgrade" id="upgradeBtn">Upgrade Server</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const overlay = document.getElementById('alertOverlay');
+  if (!overlay) return;
+  const closeBtn = overlay.querySelector('#closeBtn');
+  const upgradeBtn = overlay.querySelector('#upgradeBtn');
+
+  const show = ()=>{ overlay.classList.add('show'); overlay.setAttribute('aria-hidden','false'); };
+  const hide = ()=>{ overlay.classList.remove('show'); overlay.setAttribute('aria-hidden','true'); };
+
+  // Show on load
+  if (document.readyState !== 'loading') setTimeout(show, 10);
+  else document.addEventListener('DOMContentLoaded', ()=> setTimeout(show, 10));
+
+  closeBtn && closeBtn.addEventListener('click', hide);
+  upgradeBtn && upgradeBtn.addEventListener('click', ()=>{
+    alert('Redirecting to server upgrade page...');
+    // window.location.href = '/upgrade';
+  });
+  overlay.addEventListener('click', (e)=>{ if (e.target === overlay) hide(); });
+  document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') hide(); });
+})();
+</script>
 </body>
 </html>
