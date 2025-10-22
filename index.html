@@ -45,7 +45,6 @@
 	<!-- Swiper CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-
 	<!-- Consolidated Custom Styles -->
 	<style>
 		/* Video Slider Styles */
@@ -62,7 +61,18 @@
 			.hero-text p.subtitle { font-size: 16px !important; }
 			.hero-btns a { font-size: 14px !important; padding: 8px 12px !important; }
 		}
+		/* Hide videos on small screens and show fallback images */
+		@media (max-width: 768px) {
+			video.hero-video { display: none !important; }
+		}
+		.video-fallback {
+			position: absolute; inset: 0;
+			width: 100%; height: 100%;
+			object-fit: cover; display: block;
+		}
+
 		.swiper-pagination-bullet { display: none; }
+
 		/* Logo Carousel Styles */
 		:root {
 			--off-white: #f9f9f9;
@@ -207,7 +217,7 @@
 				<video class="hero-video" muted playsinline loop preload="none"
 					poster="assets/img/products/Doms/poster-1.jpg"
 					data-src-desktop="assets/img/products/Doms/product-video- (1).mp4"
-					data-src-mobile="assets/img/products/Doms/mobile/product-video-1-480p.mp4">
+					data-src-mobile="assets/img/products/Doms/product-image-1.jpg">
 				</video>
 				<div class="video-overlay"></div>
 			</div>
@@ -215,7 +225,7 @@
 				<video class="hero-video" muted playsinline loop preload="none"
 					poster="assets/img/products/Doms/poster-2.jpg"
 					data-src-desktop="assets/img/products/Doms/product-video- (2).mp4"
-					data-src-mobile="assets/img/products/Doms/mobile/product-video-2-480p.mp4">
+					data-src-mobile="assets/img/products/Doms/product-image-1.jpg">
 				</video>
 				<div class="video-overlay"></div>
 			</div>
@@ -249,7 +259,7 @@
 				<video class="hero-video" muted playsinline loop preload="none"
 					poster="assets/img/products/Nepal-Copy/poster-1.jpg"
 					data-src-desktop="assets/img/products/Nepal-Copy/product-video- (1).mp4"
-					data-src-mobile="assets/img/products/Nepal-Copy/mobile/product-video-1-480p.mp4">
+					data-src-mobile="assets/img/products/Doms/product-image-2.jpg">
 				</video>
 				<div class="video-overlay"></div>
 			</div>
@@ -257,7 +267,7 @@
 				<video class="hero-video" muted playsinline loop preload="none"
 					poster="assets/img/products/Nepal-Copy/poster-2.jpg"
 					data-src-desktop="assets/img/products/Nepal-Copy/product-video- (2).mp4"
-					data-src-mobile="assets/img/products/Nepal-Copy/mobile/product-video-2-480p.mp4">
+					data-src-mobile="assets/img/products/Doms/product-image-2.jpg">
 				</video>
 				<div class="video-overlay"></div>
 			</div>
@@ -824,36 +834,90 @@ window.addEventListener('load', () => {
 	}
 });
 
-// Optimized video lazy-loading
+// Hide videos on small screens and show product-image-1/2 as fallbacks
 document.addEventListener('DOMContentLoaded', () => {
-	const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+	const mq = window.matchMedia('(max-width: 768px)');
 	const videos = document.querySelectorAll('.hero-video');
+	const fallbackImgs = [
+		'assets/img/products/Doms/product-image-1.jpg',
+		'assets/img/products/Doms/product-image-2.jpg'
+	];
 
-	const videoObserver = new IntersectionObserver((entries) => {
-		entries.forEach(entry => {
-			const video = entry.target;
-			if (entry.isIntersecting) {
-				if (!video.src) {
-					video.src = isMobile() && video.dataset.srcMobile ? 
-						video.dataset.srcMobile : video.dataset.srcDesktop;
-					video.load();
+	function setupMobileFallbacks() {
+		if (!mq.matches) return;
+		let i = 0;
+		videos.forEach(video => {
+			try { video.pause(); } catch(e) {}
+			if (video.src) { video.removeAttribute('src'); video.load(); }
+			video.setAttribute('preload', 'none');
+
+			const parent = video.parentElement;
+			if (!parent || parent.querySelector('img.video-fallback')) return;
+
+			const img = document.createElement('img');
+			img.className = 'video-fallback';
+			img.src = fallbackImgs[i % fallbackImgs.length];
+			img.alt = 'Hero image';
+			img.loading = 'lazy';
+			img.decoding = 'async';
+			i++;
+
+			const overlay = parent.querySelector('.video-overlay');
+			if (overlay) parent.insertBefore(img, overlay);
+			else parent.appendChild(img);
+		});
+	}
+
+	function setupDesktopObserver() {
+		if (mq.matches) return;
+
+		const videoObserver = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				const video = entry.target;
+				if (entry.isIntersecting) {
+					if (!video.src && video.dataset.srcDesktop) {
+						video.src = video.dataset.srcDesktop;
+						video.load();
+					}
 					video.play().catch(() => {});
 				} else {
-					video.play().catch(() => {});
+					video.pause();
 				}
+			});
+		}, { rootMargin: '200px', threshold: 0.25 });
+
+		videos.forEach(video => videoObserver.observe(video));
+
+		document.addEventListener('visibilitychange', () => {
+			videos.forEach(v => document.hidden ? v.pause() : 
+				(v.getBoundingClientRect().top < window.innerHeight && v.play().catch(() => {})));
+		});
+	}
+
+	setupMobileFallbacks();
+	setupDesktopObserver();
+
+	// Handle viewport changes dynamically
+	if (mq.addEventListener) {
+		mq.addEventListener('change', e => {
+			if (e.matches) {
+				// Switched to mobile
+				setupMobileFallbacks();
 			} else {
-				video.pause();
+				// Switched to desktop: remove fallbacks
+				document.querySelectorAll('.video-fallback').forEach(img => img.remove());
+				setupDesktopObserver();
 			}
 		});
-	}, { rootMargin: '200px', threshold: 0.25 });
-
-	videos.forEach(video => videoObserver.observe(video));
-
-	// Pause/play on visibility change
-	document.addEventListener('visibilitychange', () => {
-		videos.forEach(v => document.hidden ? v.pause() : 
-			(v.getBoundingClientRect().top < window.innerHeight && v.play().catch(() => {})));
-	});
+	} else {
+		mq.addListener(e => {
+			if (e.matches) setupMobileFallbacks();
+			else {
+				document.querySelectorAll('.video-fallback').forEach(img => img.remove());
+				setupDesktopObserver();
+			}
+		});
+	}
 });
 
 // Optimized carousel data loading
@@ -905,6 +969,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Products page handler (if on products.html)
 if (document.getElementById("productList")) {
+	const urlParams = new URLSearchParams(window.location.search);
 	const container = document.getElementById("productList");
 	const filterButtons = document.querySelectorAll(".filter-list li");
 	const paginationContainer = document.getElementById("pagination");
